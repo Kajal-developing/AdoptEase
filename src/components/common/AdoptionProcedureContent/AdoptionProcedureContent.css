@@ -1,0 +1,222 @@
+.adoption-procedure-container {
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    background: #FFFFFF;
+
+    padding: 35px 50px 60px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .05);
+}
+
+.procedure-title {
+
+    text-align: center;
+
+    font-size: 48px;
+
+    font-weight: 600;
+
+    color: #1F1F1F;
+
+    margin-bottom: 60px;
+
+    margin-top: 30px;
+}
+
+.procedure-section {
+
+    margin-bottom: 42px;
+}
+
+.procedure-section h2 {
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+    color: #222;
+
+    margin-bottom: 18px;
+}
+
+.procedure-section p {
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color: #4A4A4A;
+
+    margin-bottom: 18px;
+}
+
+.procedure-section ul {
+
+    margin-left: 28px;
+
+    padding-left: 8px;
+}
+
+.procedure-section li {
+
+    font-size: 18px;
+
+    color: #4A4A4A;
+
+    line-height: 1.9;
+
+    margin-bottom: 14px;
+}
+
+.procedure-section strong {
+
+    color: #202020;
+}
+
+.procedure-section a {
+
+    color: #2F80ED;
+
+    text-decoration: none;
+
+    font-weight: 500;
+}
+
+.procedure-section a:hover {
+
+    text-decoration: underline;
+}
+
+.faq {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.faq p {
+
+    background: #F8FBFA;
+
+    border-left: 5px solid #1D9E75;
+
+    padding: 18px 20px;
+
+    border-radius: 8px;
+}
+
+.terms-link{
+
+    color:#D85A30;
+
+    font-size:18px;
+
+    font-weight:500;
+
+    text-decoration: underline !important;
+
+    text-decoration-color:#D85A30;
+
+    text-underline-offset:4px;
+
+    transition:.3s ease;
+}
+
+.terms-link:hover{
+
+    color:#BF4B24;
+
+    text-decoration: underline !important;
+}
+
+.section-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+.section-heading svg {
+
+    color: #D85A30;
+}
+
+.section-heading h2 {
+
+    margin: 0;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+    color: #202020;
+}
+
+@media (max-width:992px) {
+
+    .adoption-procedure-container {
+
+        width: 92%;
+
+        padding: 30px;
+    }
+
+    .procedure-title {
+
+        font-size: 40px;
+    }
+
+    .procedure-section h2 {
+
+        font-size: 24px;
+    }
+
+    .procedure-section p,
+    .procedure-section li {
+
+        font-size: 17px;
+    }
+}
+
+@media (max-width:768px) {
+
+    .adoption-procedure-container {
+
+        width: 94%;
+
+        padding: 25px;
+    }
+
+    .procedure-title {
+
+        font-size: 34px;
+
+        margin-bottom: 35px;
+    }
+
+
+    .procedure-section h2 {
+
+        font-size: 22px;
+    }
+
+    .procedure-section p,
+    .procedure-section li {
+
+        font-size: 16px;
+
+        line-height: 1.8;
+    }
+
+}

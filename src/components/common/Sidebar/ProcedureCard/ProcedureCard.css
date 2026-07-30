@@ -1,0 +1,66 @@
+.procedure-card{
+
+    background:#fff;
+
+    border:1px solid #E8E8E8;
+
+    border-radius:4px;
+
+    padding:34px 28px;
+
+    transition:.25s;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.procedure-card:hover{
+
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+
+.procedure-text{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#3A3A3A;
+
+    margin:0 0 40px;
+}
+
+.procedure-link{
+
+    background:none;
+
+    border:none;
+
+    padding:0;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:#1D9E75;
+
+    font-size:18px;
+
+    font-weight:500;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.procedure-link span{
+
+    font-size:30px;
+
+    line-height:1;
+}
+
+.procedure-link:hover{
+
+    color:#178462;
+}

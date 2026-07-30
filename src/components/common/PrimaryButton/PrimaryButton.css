@@ -1,0 +1,34 @@
+.primary-button{
+
+    width:100%;
+
+    height:50px;
+
+    background:#D85A30;
+
+    color:#FFFFFF;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.primary-button:hover{
+
+    background:#C14F29;
+}
+
+.primary-button:disabled{
+
+    background:#CFCFCF;
+
+    cursor:not-allowed;
+}

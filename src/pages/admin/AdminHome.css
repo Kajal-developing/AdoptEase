@@ -1,0 +1,148 @@
+.admin-home {
+
+    width: 100%;
+}
+
+.admin-home h1 {
+
+    text-align: center;
+
+    font-size: 52px;
+
+    font-weight: 600;
+
+    margin-top: 20px;
+
+    margin-bottom: 60px;
+}
+
+.admin-subtitle {
+
+    margin-left: 60px;   
+
+    font-size: 22px;
+
+    color: #444;
+
+    margin-bottom: 45px;
+}
+
+/* Statistics */
+
+.dashboard-cards {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 28px;
+
+    margin: 45px auto 55px;
+
+    width: fit-content;
+}
+
+/* Quick Actions */
+
+.dashboard-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 90px;
+
+    margin: 20px 0 70px;
+
+    padding-left: 20px;
+}
+
+/* Table */
+
+.recent-meetings {
+
+    width: 82%;
+
+    margin: auto;
+
+    background: white;
+
+    border: 1px solid #E5E5E5;
+
+    padding: 35px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .05);
+}
+
+.recent-meetings h3 {
+
+    text-align: center;
+
+    font-size: 26px;
+    font-weight: 600;
+
+    margin-bottom: 30px;
+}
+
+.recent-meetings table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.recent-meetings tr {
+
+    border-top: 1px solid #E3E3E3;
+}
+
+.recent-meetings td {
+
+    padding: 18px 10px;
+
+    font-size: 18px;
+
+    color: #333;
+}
+
+.recent-meetings strong {
+
+    margin-right: 8px;
+}
+
+/* Responsive */
+
+@media(max-width:1200px) {
+
+    .dashboard-cards {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .dashboard-actions {
+
+        grid-template-columns: 1fr;
+    }
+
+    .recent-meetings {
+
+        width: 100%;
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .admin-home h1 {
+
+        font-size: 42px;
+    }
+
+    .admin-subtitle {
+
+        font-size: 20px;
+    }
+
+}

@@ -1,0 +1,294 @@
+.adoption-center-hero {
+
+    width: 100%;
+
+    height: 250px;
+
+    background-color: #FFF5F2;
+    /* Added */
+
+    background-image: url("../../assets/adoptionCenters/header-bg.png");
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.hero-overlay {
+
+    text-align: center;
+}
+
+.hero-overlay h1 {
+
+    font-size: 52px;
+
+    font-weight: 600;
+
+    color: #202020;
+
+    margin-bottom: 12px;
+}
+
+.hero-overlay p {
+
+    font-size: 18px;
+
+    color: #7A7A7A;
+}
+
+.map-section {
+
+    max-width: 1100px;
+
+    margin: 60px auto;
+
+    padding: 0 20px;
+}
+
+.city-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    color: #202020;
+
+    margin-bottom: 30px;
+}
+
+.city-arrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    color: #202020;
+
+    margin-top: 2px;
+}
+
+.map-image {
+
+    width: 100%;
+
+    border-radius: 0;
+
+    display: block;
+}
+
+.centers-section {
+
+    max-width: 1100px;
+
+    margin: 70px auto 0;
+
+    padding: 0 20px 40px;
+}
+
+.centers-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 40px;
+}
+
+.center-card {
+
+    background: #FFFFFF;
+
+    overflow: hidden;
+
+    transition: .3s ease;
+}
+
+.center-image {
+
+    width: 100%;
+
+    height: 260px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+}
+
+.center-content {
+
+    padding-top: 18px;
+}
+
+.center-content h3 {
+
+    font-size: 28px;
+
+    font-weight: 500;
+
+    color: #202020;
+
+    margin-bottom: 8px;
+}
+
+.center-address {
+
+    color: #666;
+
+    font-size: 16px;
+
+    margin-bottom: 18px;
+}
+
+.center-description {
+
+    color: #555;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+}
+
+.see-children-btn {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    border: none;
+
+    background: none;
+
+    color: #1D9E75;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.see-children-btn:hover {
+
+    color: #157B5D;
+}
+
+@media(max-width:768px) {
+
+    .centers-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.breadcrumb {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 18px;
+
+    font-size: 18px;
+}
+
+.breadcrumb-link {
+
+    color: #1D9E75;
+
+    text-decoration: none;
+
+    font-weight: 500;
+
+    transition: .25s ease;
+}
+
+.breadcrumb-link:hover {
+
+    color: #177B5D;
+
+    text-decoration: underline;
+}
+
+.breadcrumb-separator {
+
+    color: #8F8F8F;
+}
+
+.breadcrumb-current {
+
+    color: #8F8F8F;
+
+    font-weight: 500;
+}
+
+.view-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background: none;
+
+    border: none;
+
+    padding: 0;
+
+    color: #1D9E75;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.view-btn svg {
+
+    transition: transform 0.3s ease;
+}
+
+.view-btn:hover {
+
+    color: #177B5D;
+}
+
+.view-btn:hover svg {
+
+    transform: translateX(5px);
+}

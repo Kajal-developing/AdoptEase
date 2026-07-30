@@ -1,0 +1,339 @@
+.meeting-request-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    background: #FFFFFF;
+
+    padding: 60px 0 90px;
+
+}
+
+.meeting-request-header {
+
+    text-align: center;
+
+    margin-bottom: 60px;
+
+}
+
+.meeting-request-header h1 {
+
+    font-size: 52px;
+
+    font-weight: 600;
+
+    color: #202020;
+
+}
+
+/*======================================
+            GRID
+======================================*/
+
+.request-grid-section {
+
+    width: 90%;
+
+    max-width: 1400px;
+
+    margin: auto;
+
+}
+
+.request-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+}
+
+
+/*======================================
+            CARD
+======================================*/
+
+.request-card {
+
+    background: #FFFFFF;
+
+    border-radius: 16px;
+
+    padding: 22px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+    transition: .3s;
+
+}
+
+
+.request-card h2 {
+
+    font-size: 26px;
+
+    margin-bottom: 8px;
+
+}
+
+.request-location {
+
+    color: #666;
+
+    margin-bottom: 20px;
+
+}
+
+
+/*======================================
+        DATE TIME
+======================================*/
+
+.request-slot {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    background: #FBE6DE;
+
+    padding: 14px 18px;
+
+    border-radius: 8px;
+
+    margin-bottom: 20px;
+
+    font-weight: 600;
+
+}
+
+.request-card hr {
+
+    border: none;
+
+    border-top: 1px solid #E5E5E5;
+
+    margin-bottom: 18px;
+
+}
+
+.request-card small {
+
+    color: #777;
+
+}
+
+.request-card h3 {
+
+    margin-top: 8px;
+
+    margin-bottom: 10px;
+
+    font-size: 26px;
+
+}
+
+.request-age {
+
+    color: #666;
+
+    margin-bottom: 22px;
+
+}
+
+
+/*======================================
+        BUTTONS
+======================================*/
+
+.request-actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+}
+
+.accept-btn,
+
+.reject-btn {
+
+    padding: 8px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    background: #FFFFFF;
+
+}
+
+.accept-btn {
+
+    border: 1px solid #1D9E75;
+
+    color: #1D9E75;
+
+}
+
+.reject-btn {
+
+    border: 1px solid #FF4D5A;
+
+    color: #FF4D5A;
+
+}
+
+.active-accept {
+
+    background: #DDF6EC;
+
+}
+
+.active-reject {
+
+    background: #FFE9EB;
+
+}
+
+
+/*======================================
+        TEXTAREA
+======================================*/
+
+.request-card textarea {
+
+    width: 100%;
+
+    height: 90px;
+
+    resize: none;
+
+    border: 1px solid #D5D5D5;
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/*======================================
+        SUBMIT
+======================================*/
+
+.submit-request-btn {
+
+    display: block;
+
+    margin: auto;
+
+    background: #D85A30;
+
+    color: #FFFFFF;
+
+    border: none;
+
+    padding: 10px 22px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+}
+
+.submit-request-btn:hover {
+
+    background: #BF4C24;
+
+}
+
+
+/*======================================
+        RESPONSIVE
+======================================*/
+
+@media(max-width:1100px) {
+
+    .request-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .request-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/*======================================
+        FINAL STATUS
+======================================*/
+
+.request-status {
+
+    text-align: center;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+
+}
+
+.request-status.accepted {
+
+    background: #DDF6EC;
+
+    color: #1D9E75;
+
+    border: 1px solid #1D9E75;
+
+}
+
+.request-status.rejected {
+
+    background: #FFE9EB;
+
+    color: #E53935;
+
+    border: 1px solid #E53935;
+
+}
+
+
+/*======================================
+        DISABLED
+======================================*/
+
+.request-actions button:disabled {
+
+    cursor: not-allowed;
+
+    opacity: .65;
+
+}
+
+.request-card textarea:disabled {
+
+    background: #F7F7F7;
+
+    cursor: not-allowed;
+
+}

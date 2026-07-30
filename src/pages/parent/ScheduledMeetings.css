@@ -1,0 +1,346 @@
+.scheduled-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    background: #FFFFFF;
+
+    padding: 60px 0 90px;
+}
+
+.scheduled-header {
+
+    text-align: center;
+
+    margin-bottom: 60px;
+}
+
+.scheduled-header h1 {
+
+    font-size: 52px;
+
+    font-weight: 600;
+
+    color: #202020;
+}
+
+/*=========================================
+        GRID
+=========================================*/
+
+.meetings-grid-section {
+
+    width: 90%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding-bottom: 80px;
+}
+
+.meetings-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 28px;
+}
+
+
+/*=========================================
+        CARD
+=========================================*/
+
+.meeting-ticket {
+
+    background: #FFFFFF;
+
+    border: 1.5px solid #E56C42;
+
+    border-radius: 16px;
+
+    padding: 26px;
+
+    min-height: 360px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    transition: .3s;
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.meeting-ticket h2 {
+
+    font-size: 36px;
+
+    margin-bottom: 12px;
+
+    color: #222;
+}
+
+.ticket-age {
+
+    color: #666;
+
+    margin-bottom: 18px;
+
+    font-size: 16px;
+}
+
+.ticket-center {
+
+    font-size: 18px;
+
+    color: #333;
+
+    margin-bottom: 22px;
+
+    min-height: 48px;
+}
+
+
+/*=========================================
+        DATE TIME
+=========================================*/
+
+.meeting-slot {
+
+    background: #FBE6DE;
+
+    border-radius: 10px;
+
+    padding: 14px 18px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-weight: 600;
+
+    margin: 22px 0;
+}
+
+
+/*=========================================
+        STATUS
+=========================================*/
+
+.ticket-action {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+}
+
+.status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 8px 18px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.scheduled {
+
+    color: #0E8C63;
+
+    background: #D9F4EA;
+
+    border: 1px solid #0E8C63;
+}
+
+.pending {
+
+    color: #C48A00;
+
+    background: #FFF5D9;
+
+    border: 1px solid #E0B700;
+}
+
+.rejected {
+
+    color: #E63946;
+
+    background: #FFF0F1;
+
+    border: 1px solid #E63946;
+}
+
+.reschedule-btn {
+
+    background: #D85A30;
+
+    color: #FFFFFF;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.reschedule-btn:hover {
+
+    background: #BF4C24;
+
+    transform: translateY(-2px);
+}
+
+
+/*=========================================
+        MESSAGE
+=========================================*/
+
+.ticket-message {
+
+    margin-top: 18px;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    background: none;
+
+    border: none;
+
+    padding: 0;
+}
+
+.ticket-message.scheduled {
+
+    color: #1D9E75;
+}
+
+.ticket-message.pending {
+
+    color: #777777;
+}
+
+.ticket-message.rejected {
+
+    color: #E53935;
+}
+
+
+/*=========================================
+        RESPONSIVE
+=========================================*/
+
+@media(max-width:1100px) {
+
+    .meetings-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .meetings-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .scheduled-header h1 {
+
+        font-size: 42px;
+
+    }
+
+}
+
+/*=============================
+        IMAGE
+=============================*/
+
+.ticket-top {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+.ticket-image {
+
+    width: 72px;
+
+    height: 72px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 3px solid #F4F4F4;
+}
+
+.ticket-top h2 {
+
+    margin: 0;
+
+    font-size: 30px;
+}
+
+.ticket-age {
+
+    margin-top: 6px;
+}
+
+.empty-meetings {
+
+    text-align: center;
+
+    padding: 120px 20px;
+}
+
+.empty-meetings h2 {
+
+    font-size: 34px;
+
+    margin-bottom: 12px;
+}
+
+.empty-meetings p {
+
+    color: #666;
+
+    font-size: 18px;
+}

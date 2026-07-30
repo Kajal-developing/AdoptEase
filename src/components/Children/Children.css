@@ -1,0 +1,567 @@
+.children-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    background: #FFFFFF;
+}
+
+/* =======================================
+            HERO SECTION
+======================================= */
+
+.children-hero {
+
+    width: 100%;
+
+    height: 250px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #FFF5F2;
+
+    background-image: url("../../assets/children/header-bg.jpg");
+
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+    background-size: cover;
+}
+
+.children-hero-overlay {
+
+    text-align: center;
+}
+
+.children-hero-overlay h1 {
+
+    font-size: 52px;
+
+    font-weight: 600;
+
+    color: #202020;
+
+    margin-bottom: 18px;
+}
+
+/* =======================================
+            BREADCRUMB
+======================================= */
+
+.children-breadcrumb {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 18px;
+}
+
+.breadcrumb-link {
+
+    text-decoration: none;
+
+    color: #1D9E75;
+
+    font-weight: 500;
+
+    transition: .25s;
+}
+
+.breadcrumb-link:hover {
+
+    text-decoration: underline;
+}
+
+.breadcrumb-link-primary {
+
+    text-decoration: none;
+
+    color: #D85A30;
+
+    font-weight: 500;
+
+    transition: .25s;
+}
+
+.breadcrumb-link-primary:hover {
+
+    text-decoration: underline;
+}
+
+.breadcrumb-current {
+
+    color: #8A8A8A;
+
+    font-weight: 500;
+}
+
+.breadcrumb-separator {
+
+    color: #8A8A8A;
+}
+
+/* =======================================
+            RESPONSIVE
+======================================= */
+
+@media(max-width:768px) {
+
+    .children-hero {
+
+        height: 220px;
+    }
+
+    .children-hero-overlay h1 {
+
+        font-size: 44px;
+    }
+
+    .children-breadcrumb {
+
+        font-size: 16px;
+    }
+
+}
+
+/*=========================================
+        ADOPTION CENTER INFORMATION
+==========================================*/
+
+.center-info-section {
+
+    max-width: 1100px;
+
+    margin: 60px auto;
+
+    padding: 0 20px;
+}
+
+.center-info-card {
+
+    background: #FFFFFF;
+
+    border: 1px solid #E8ECEF;
+
+    border-radius: 16px;
+
+    padding: 38px;
+
+    box-shadow: 0 4px 18px rgba(0, 0, 0, .05);
+}
+
+.center-info-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 30px;
+}
+
+.center-info-header h2 {
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    color: #202020;
+
+    margin-bottom: 8px;
+}
+
+.center-city {
+
+    color: #777;
+
+    font-size: 18px;
+}
+
+.center-status {
+
+    background: #EAF8F2;
+
+    color: #1D9E75;
+
+    padding: 8px 18px;
+
+    border-radius: 30px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.center-info-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+
+    margin-bottom: 32px;
+}
+
+.info-item {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+    color: #4A4A4A;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+.info-item svg {
+
+    color: #D85A30;
+
+    flex-shrink: 0;
+
+    margin-top: 2px;
+}
+
+.center-description {
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    color: #555;
+}
+
+/*=========================================
+            RESPONSIVE
+==========================================*/
+
+@media(max-width:768px) {
+
+    .center-info-card {
+
+        padding: 28px;
+    }
+
+    .center-info-header {
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .center-info-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .center-info-header h2 {
+
+        font-size: 28px;
+    }
+
+}
+
+/*=========================================
+            CHILDREN GRID
+==========================================*/
+
+.children-grid-section {
+
+    max-width: 1100px;
+
+    margin: 60px auto 100px;
+
+    padding: 0 20px;
+}
+
+.children-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    column-gap: 50px;
+
+    row-gap: 70px;
+}
+
+
+/*=========================================
+                CHILD CARD
+==========================================*/
+
+.child-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    border: none;
+}
+
+
+/* Image */
+
+.child-image {
+
+    width: 100%;
+
+    height: 500px;
+
+    object-fit: cover;
+
+    border-radius: 0;
+
+    margin-bottom: 18px;
+}
+
+
+/* Information */
+
+.child-info {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* Header */
+
+.child-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.child-header h3 {
+
+    margin: 0;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    color: #222;
+}
+
+
+/* Status */
+
+.child-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.status-dot {
+
+    width: 11px;
+
+    height: 11px;
+
+    border-radius: 50%;
+}
+
+.status-available {
+
+    color: #222;
+}
+
+.status-available .status-dot {
+
+    background: #1D9E75;
+}
+
+.status-reserved {
+
+    color: #222;
+}
+
+.status-reserved .status-dot {
+
+    background: #3B82F6;
+}
+
+.status-adopted {
+
+    color: #222;
+}
+
+.status-adopted .status-dot {
+
+    background: #EF4444;
+}
+
+
+/* Age / Gender */
+
+.child-meta {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    color: #6B6B6B;
+
+    font-size: 15px;
+}
+
+.label {
+
+    font-weight: 600;
+
+    color: #555;
+}
+
+
+/* Health */
+
+.child-health {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+
+    color: #202020;
+}
+
+
+/* Description */
+
+.child-description {
+
+    color: #555;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    margin-bottom: 22px;
+}
+
+
+/* Meeting Link */
+
+.meeting-link {
+
+    width: max-content;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background: none;
+
+    border: none;
+
+    padding: 0;
+
+    color: #1D9E75;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.meeting-link svg {
+
+    transition: .3s;
+}
+
+.meeting-link:hover:not(:disabled) {
+
+    color: #177B5D;
+}
+
+.meeting-link:hover:not(:disabled) svg {
+
+    transform: translateX(5px);
+}
+
+.meeting-link:disabled {
+
+    color: #B5B5B5;
+
+    cursor: not-allowed;
+}
+
+
+/*=========================================
+            RESPONSIVE
+==========================================*/
+
+@media(max-width:992px) {
+
+    .children-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .child-image {
+
+        height: 320px;
+    }
+
+    .child-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+    .child-header h3 {
+
+        font-size: 26px;
+    }
+
+}

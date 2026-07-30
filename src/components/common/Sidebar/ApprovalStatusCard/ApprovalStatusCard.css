@@ -1,0 +1,116 @@
+.approval-card {
+
+    background: #fff;
+
+    border: 1px solid #E5E5E5;
+
+    border-radius: 4px;
+
+    padding: 28px 32px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.approval-card h3 {
+
+    margin: 0;
+
+    font-size: 22px;
+
+    font-weight: 600;
+
+    color: #222;
+
+}
+
+.approval-card hr {
+
+    border: none;
+
+    border-top: 1px solid #D9D9D9;
+
+    margin: 22px 0 28px;
+
+}
+
+.approval-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+}
+
+.approval-item {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+.status-circle {
+
+    width: 24px;
+
+    height: 24px;
+
+    border-radius: 50%;
+
+    border: 2px solid #D9D9D9;
+
+    background: #FFFFFF;
+
+    margin-right: 22px;
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    box-sizing: border-box;
+
+}
+
+.status-circle.active {
+
+    background: #fff;
+
+    border: 2px solid #E96B3C;
+
+    box-sizing: border-box;
+
+}
+
+.status-circle.active::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+
+    height: 12px;
+
+    background: #E96B3C;
+
+    border-radius: 50%;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+}
+
+.status-text {
+
+    font-size: 18px;
+
+    color: #333;
+
+    font-weight: 500;
+
+}

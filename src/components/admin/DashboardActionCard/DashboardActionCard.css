@@ -1,0 +1,40 @@
+.dashboard-action-card {
+
+    width: 600px;
+
+    height: 86px;
+
+    background: #FFF4EF;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 36px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-action-card:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard-action-card span {
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    color: #2E2E2E;
+}

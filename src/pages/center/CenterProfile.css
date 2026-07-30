@@ -1,0 +1,406 @@
+.center-profile-page {
+
+    width: 90%;
+
+    max-width: 1300px;
+
+    margin: 50px auto;
+
+}
+
+/*==========================
+        HEADER
+==========================*/
+
+.center-header-card {
+
+    background: #FFFFFF;
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    display: flex;
+
+    gap: 45px;
+
+    align-items: center;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+
+}
+
+.center-logo-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+.center-logo {
+
+    width: 170px;
+
+    height: 170px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid #F4F4F4;
+
+}
+
+.change-logo-btn {
+
+    margin-top: 18px;
+
+    background: #D85A30;
+
+    color: #FFFFFF;
+
+    border: none;
+
+    padding: 12px 24px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    gap: 8px;
+
+    align-items: center;
+
+}
+
+.change-logo-btn:hover {
+
+    background: #BF4C24;
+
+}
+
+.center-header-details {
+
+    flex: 1;
+
+}
+
+.center-header-details h1 {
+
+    font-size: 42px;
+
+    margin-bottom: 12px;
+
+}
+
+.center-header-details h2 {
+
+    font-size: 28px;
+
+    margin-bottom: 18px;
+
+}
+
+.verified-center {
+
+    display: inline-block;
+
+    background: #EAF8F1;
+
+    color: #1D9E75;
+
+    padding: 8px 18px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    margin-bottom: 30px;
+
+}
+
+.center-meta {
+
+    display: flex;
+
+    gap: 60px;
+
+    flex-wrap: wrap;
+
+}
+
+.center-meta strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+}
+
+.center-meta p {
+
+    color: #666;
+
+}
+
+@media(max-width:900px) {
+
+    .center-header-card {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+    .center-meta {
+
+        justify-content: center;
+
+    }
+
+}
+
+/*==========================
+      PROFILE CARD
+==========================*/
+
+.profile-card {
+
+    background: #FFFFFF;
+
+    margin-top: 30px;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+
+}
+
+.card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+
+}
+
+.card-header h2 {
+
+    font-size: 28px;
+
+}
+
+.edit-btn {
+
+    background: #D85A30;
+
+    color: #FFFFFF;
+
+    border: none;
+
+    padding: 10px 22px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+}
+
+.edit-btn:hover {
+
+    background: #BF4C24;
+
+}
+
+.info-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+}
+
+.info-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.info-item label {
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+
+}
+
+.info-item input,
+.info-item textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #D9D9D9;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    outline: none;
+
+}
+
+.info-item textarea {
+
+    resize: vertical;
+
+}
+
+.full-width {
+
+    grid-column: 1 / -1;
+
+}
+
+@media(max-width:768px) {
+
+    .info-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+.view-btn {
+
+    background: #1D9E75;
+
+    color: #FFFFFF;
+
+}
+
+.view-btn:hover {
+
+    background: #17805f;
+
+}
+
+.download-btn {
+
+    background: #D85A30;
+
+    color: #FFFFFF;
+
+}
+
+.download-btn:hover {
+
+    background: #BF4C24;
+
+}
+
+/*==========================
+    ACCOUNT SETTINGS
+==========================*/
+
+.account-buttons {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+.save-btn {
+
+    background: #1D9E75;
+
+    color: #FFFFFF;
+
+    border: none;
+
+    padding: 14px 30px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+}
+
+.save-btn:hover {
+
+    background: #17805F;
+
+}
+
+.deactivate-btn {
+
+    background: #F44336;
+
+    color: #FFFFFF;
+
+    border: none;
+
+    padding: 14px 30px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+}
+
+.deactivate-btn:hover {
+
+    background: #D32F2F;
+
+}
+
+@media(max-width:768px) {
+
+    .account-buttons {
+
+        flex-direction: column;
+
+    }
+
+    .save-btn,
+    .deactivate-btn {
+
+        width: 100%;
+
+    }
+
+}

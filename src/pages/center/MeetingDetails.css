@@ -1,0 +1,377 @@
+.meeting-details-page {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 60px 0 90px;
+
+}
+
+.meeting-details-title {
+
+    text-align: center;
+
+    font-size: 56px;
+
+    margin-bottom: 50px;
+
+    color: #202020;
+
+}
+
+/*==========================================
+        COMMON CARD
+==========================================*/
+
+.details-card {
+
+    background: #FFFFFF;
+
+    border-radius: 16px;
+
+    padding: 30px;
+
+    margin-bottom: 30px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+
+}
+
+.details-card h2 {
+
+    color: #D85A30;
+
+    margin-bottom: 25px;
+
+    font-size: 30px;
+
+}
+
+/*==========================================
+        GRID
+==========================================*/
+
+.details-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+}
+
+.details-grid label {
+
+    display: block;
+
+    font-size: 14px;
+
+    color: #777777;
+
+    margin-bottom: 8px;
+
+}
+
+.details-grid p {
+
+    font-size: 18px;
+
+    color: #202020;
+
+    font-weight: 500;
+
+}
+
+@media(max-width:768px) {
+
+    .details-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/*==========================================
+        CHILD INFORMATION
+==========================================*/
+
+.details-grid p {
+
+    line-height: 1.6;
+
+}
+
+.details-card:last-child {
+
+    margin-bottom: 0;
+
+}
+
+/*==========================================
+        DOCUMENTS
+==========================================*/
+
+.documents-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.document-card {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #FAFAFA;
+
+    border: 1px solid #ECECEC;
+
+    border-radius: 12px;
+
+    padding: 18px 22px;
+
+}
+
+.document-card h4 {
+
+    margin: 0;
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    color: #202020;
+
+}
+
+.view-document-btn {
+
+    background: #D85A30;
+
+    color: #FFFFFF;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 10px 22px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.view-document-btn:hover {
+
+    background: #BF4C24;
+
+}
+
+@media(max-width:768px) {
+
+    .document-card {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 16px;
+
+    }
+
+    .view-document-btn {
+
+        width: 100%;
+
+    }
+
+}
+
+/*==========================================
+        MEETING ACTIONS
+==========================================*/
+
+.meeting-action-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.meeting-action-section label {
+
+    font-weight: 600;
+
+    color: #202020;
+
+}
+
+.meeting-action-section textarea {
+
+    width: 100%;
+
+    min-height: 140px;
+
+    padding: 15px;
+
+    border: 1px solid #D9D9D9;
+
+    border-radius: 10px;
+
+    resize: vertical;
+
+    font-size: 16px;
+
+    outline: none;
+
+}
+
+.meeting-status-box {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+.status-badge {
+
+    padding: 8px 16px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+.status-badge.scheduled {
+
+    background: #FFF3CD;
+
+    color: #B7791F;
+
+}
+
+.status-badge.completed {
+
+    background: #DDF6EC;
+
+    color: #1D9E75;
+
+}
+
+.status-badge.cancelled {
+
+    background: #FFE5E5;
+
+    color: #E53935;
+
+}
+
+.meeting-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+.complete-btn,
+.cancel-btn,
+.save-btn {
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 12px 22px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: .3s;
+
+}
+
+.complete-btn {
+
+    background: #1D9E75;
+
+    color: #FFFFFF;
+
+}
+
+.complete-btn:hover {
+
+    background: #16805E;
+
+}
+
+.cancel-btn {
+
+    background: #E53935;
+
+    color: #FFFFFF;
+
+}
+
+.cancel-btn:hover {
+
+    background: #C62828;
+
+}
+
+.save-btn {
+
+    background: #D85A30;
+
+    color: #FFFFFF;
+
+}
+
+.save-btn:hover {
+
+    background: #BF4C24;
+
+}
+
+@media(max-width:768px) {
+
+    .meeting-buttons {
+
+        flex-direction: column;
+
+    }
+
+    .complete-btn,
+    .cancel-btn,
+    .save-btn {
+
+        width: 100%;
+
+    }
+
+}

@@ -1,0 +1,59 @@
+.file-upload {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+/* Label */
+
+.file-upload label {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #333;
+}
+
+.required {
+
+    color: red;
+
+    margin-left: 3px;
+}
+
+/* Input */
+
+.file-upload input {
+
+    padding: 10px;
+
+    border: 1px solid #D8D8D8;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    background: white;
+}
+
+.file-upload input:focus {
+
+    border-color: #1D9E75;
+
+    outline: none;
+}
+
+/* File Name */
+
+.file-name {
+
+    color: #555;
+
+    font-size: 14px;
+}

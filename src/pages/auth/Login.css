@@ -1,0 +1,287 @@
+/* ==========================
+   LOGIN PAGE
+========================== */
+
+.login-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.login-container {
+    width: 100%;
+    max-width: 1400px;
+    height: 90vh;
+    max-height: 820px;
+    display: flex;
+    background: #FDE9E0;
+    border-radius: 32px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 24px;
+    gap: 24px;
+}
+
+/* ==========================
+   LEFT SECTION
+========================== */
+
+.left-section {
+    flex: 1.1;
+    background: #ffffff;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.login-image {
+    width: 650px;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ==========================
+   RIGHT SECTION
+========================== */
+
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(10px, 2vh, 24px) clamp(20px, 4vw, 50px);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* ==========================
+   LOGO
+========================== */
+
+.logo-container {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-bottom: clamp(10px, 2vh, 20px);
+
+}
+
+.logo {
+    width: 100px;
+}
+
+/* ==========================
+   FORM WRAPPER — centers content vertically in remaining space
+========================== */
+
+.form-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 460px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* ==========================
+   HEADINGS
+========================== */
+
+.right-section h1 {
+    font-size: clamp(30px, 4.5vh, 44px);
+    color: #D95B2D;
+    text-align: center;
+    margin: 0;
+    font-weight: 700;
+}
+
+.welcome-text {
+    text-align: center;
+    font-size: 14px;
+    color: #444;
+    margin: 6px 0 clamp(16px, 2.5vh, 28px);
+}
+
+/* ==========================
+   FORM
+========================== */
+
+.form-wrapper form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+/* ==========================
+   FORGOT PASSWORD
+========================== */
+
+.forgot-password {
+    text-align: right;
+    margin-top: -8px;
+}
+
+.forgot-password a {
+    color: #999;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* ==========================
+   CAPTCHA
+========================== */
+
+.captcha-box {
+    height: 60px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.captcha-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.captcha-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.captcha-right {
+    text-align: right;
+}
+
+.recaptcha-logo {
+    font-size: 12px;
+    font-weight: 600;
+    color: #4285F4;
+}
+
+.recaptcha-links {
+    font-size: 9px;
+    color: #999;
+}
+
+/* ==========================
+   REGISTER
+========================== */
+
+.register-text {
+    margin-top: clamp(10px, 1.5vh, 16px);
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.register-text a {
+    color: #2F6FED;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ==========================
+   ROLE BUTTONS
+========================== */
+
+.role-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: clamp(14px, 2vh, 22px);
+}
+
+.role-buttons button {
+    flex: 1;
+    max-width: 150px;
+    height: 42px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.parent-btn {
+    background: #B7E4C7;
+    color: #1B5E3A;
+}
+
+.parent-btn:hover {
+    background: #9fd9b3;
+}
+
+.center-btn {
+    background: #FDECC0;
+    color: #7A5B00;
+}
+
+.center-btn:hover {
+    background: #fbe0a0;
+}
+
+.admin-btn {
+    background: #C9E2FB;
+    color: #1B4E8C;
+}
+
+.admin-btn:hover {
+    background: #aed3f7;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 992px) {
+
+    .login-container {
+        flex-direction: column;
+        height: auto;
+        max-height: none;
+        overflow-y: auto;
+    }
+
+    .login-page {
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    .left-section {
+        display: none;
+    }
+
+    .role-buttons {
+        flex-direction: column;
+    }
+
+    .role-buttons button {
+        max-width: none;
+    }
+}

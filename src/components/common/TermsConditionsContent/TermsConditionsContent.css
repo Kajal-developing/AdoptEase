@@ -1,0 +1,242 @@
+.terms-container {
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    background: #FFFFFF;
+
+    padding: 35px 50px 60px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .05);
+}
+
+.terms-title {
+
+    text-align: center;
+
+    font-size: 48px;
+
+    font-weight: 600;
+
+    color: #1F1F1F;
+
+    margin-bottom: 60px;
+
+    margin-top: 30px;
+}
+
+.terms-section {
+
+    margin-bottom: 42px;
+}
+
+.terms-section h2 {
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+    color: #222;
+
+    margin-bottom: 18px;
+}
+
+.terms-section p {
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color: #4A4A4A;
+
+    margin-bottom: 18px;
+}
+
+.terms-section ul {
+
+    margin-left: 28px;
+
+    padding-left: 8px;
+}
+
+.terms-section li {
+
+    font-size: 18px;
+
+    color: #4A4A4A;
+
+    line-height: 1.9;
+
+    margin-bottom: 14px;
+}
+
+.terms-section strong {
+
+    color: #202020;
+}
+
+.terms-section a {
+
+    color: #2F80ED;
+
+    text-decoration: none;
+
+    font-weight: 500;
+}
+
+.terms-section a:hover {
+
+    text-decoration: underline;
+}
+
+.faq {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.faq p {
+
+    background: #F8FBFA;
+
+    border-left: 5px solid #1D9E75;
+
+    padding: 18px 20px;
+
+    border-radius: 8px;
+}
+
+.terms-container {
+
+    margin-top: 45px;
+}
+
+.terms-link {
+
+    color: #D85A30;
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    text-decoration: none;
+}
+
+.terms-link:hover {
+
+    text-decoration: underline;
+}
+
+.section-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+.section-heading svg {
+
+    color: #D85A30;
+}
+
+.section-heading h2 {
+
+    margin: 0;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+    color: #202020;
+}
+
+@media (max-width:992px) {
+
+    .adoption-procedure-container {
+
+        width: 92%;
+
+        padding: 30px;
+    }
+
+    .procedure-title {
+
+        font-size: 40px;
+    }
+
+    .procedure-section h2 {
+
+        font-size: 24px;
+    }
+
+    .procedure-section p,
+    .procedure-section li {
+
+        font-size: 17px;
+    }
+}
+
+@media (max-width:768px) {
+
+    .terms-container {
+
+        width: 94%;
+
+        padding: 25px;
+    }
+
+    .terms-title {
+
+        font-size: 34px;
+
+        margin-bottom: 35px;
+    }
+
+    .terms-section {
+
+        background: #FFFFFF;
+
+        border: 1px solid #E8ECEF;
+
+        border-radius: 14px;
+
+        padding: 28px 32px;
+
+        margin-bottom: 28px;
+
+        box-shadow: 0 4px 14px rgba(0, 0, 0, .05);
+
+        transition: .25s ease;
+    }
+
+    .terms-section:hover {
+
+        transform: translateY(-3px);
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+    }
+
+    .terms-section h2 {
+
+        font-size: 22px;
+    }
+
+    .terms-section p,
+    .terms-section li {
+
+        font-size: 16px;
+
+        line-height: 1.8;
+    }
+
+}

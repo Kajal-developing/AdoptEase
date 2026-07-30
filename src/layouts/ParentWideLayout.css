@@ -1,0 +1,17 @@
+.parent-wide-layout {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: #FFFFFF;
+}
+
+.parent-wide-layout-content {
+
+    flex: 1;
+
+    width: 100%;
+}
