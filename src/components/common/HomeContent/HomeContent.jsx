@@ -38,10 +38,16 @@ function HomeContent({
 
             </div>
 
+            
             <NoticeBox
                 checked={noticeChecked}
+                disabled={noticeChecked}
                 onChange={onNoticeChange}
             />
+            
+            <p className="notice-mandatory">
+                * This declaration is mandatory before proceeding.
+            </p>
 
         </div>
 

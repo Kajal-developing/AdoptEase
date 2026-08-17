@@ -1,7 +1,9 @@
 import "./Children.css";
 import { Link } from "react-router-dom";
 
-function HeroSection() {
+function HeroSection({ city }) {
+
+    console.log("Hero city:", city);
 
     return (
 
@@ -9,9 +11,7 @@ function HeroSection() {
 
             <div className="children-hero-overlay">
 
-                <h1>
-                    Children
-                </h1>
+                <h1>Children</h1>
 
                 <div className="children-breadcrumb">
 
@@ -27,7 +27,7 @@ function HeroSection() {
                     </span>
 
                     <Link
-                        to="/adoption-centers/pune"
+                        to={`/adoption-centers/${city}`}
                         className="breadcrumb-link"
                     >
                         Adoption Centers

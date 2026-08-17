@@ -1,7 +1,19 @@
 import "./AdoptionCenters.css";
 import { Link } from "react-router-dom";
 
-function HeroSection() {
+function HeroSection({ city }) {
+
+    const cityName = {
+
+        pune: "Pune",
+
+        mumbai: "Mumbai",
+
+        sambhajinagar: "Ch. Sambhajinagar",
+
+        delhi: "Delhi"
+
+    }[city];
 
     return (
 
@@ -29,7 +41,9 @@ function HeroSection() {
                     </span>
 
                     <span className="breadcrumb-current">
-                        Adoption Centers
+
+                        {cityName}
+
                     </span>
 
                 </p>

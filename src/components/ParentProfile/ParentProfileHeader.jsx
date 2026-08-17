@@ -1,14 +1,40 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import "./ParentProfile.css";
 import { FiCamera } from "react-icons/fi";
+import LogoutButton from "../../components/common/LogoutButton";
 
-function ParentProfileHeader() {
+import {
+    updateParentProfilePhoto,
+    getParentProfile
+} from "../../api/authApi";
+
+function ParentProfileHeader({ profile }) {
 
     const [profileImage, setProfileImage] = useState(
-        "https://placehold.co/150x150"
+        "https://placehold.co/150x150?text=Photo"
     );
 
     const fileInputRef = useRef(null);
+
+    // Load saved profile photo from backend
+    useEffect(() => {
+
+        if (profile?.profilePhoto) {
+
+            setProfileImage(
+                `http://localhost:8080/images/parents/${profile.profilePhoto}`
+            );
+
+        } else {
+
+            setProfileImage(
+                "https://placehold.co/150x150?text=Photo"
+            );
+
+        }
+
+    }, [profile?.profilePhoto]);
+
 
     const handleChangePhoto = () => {
 
@@ -16,15 +42,54 @@ function ParentProfileHeader() {
 
     };
 
-    const handleFileChange = (e) => {
+
+    const handleFileChange = async (e) => {
 
         const file = e.target.files[0];
 
         if (!file) return;
 
-        setProfileImage(URL.createObjectURL(file));
+        try {
+
+            // Upload to backend
+            await updateParentProfilePhoto(
+                profile.userId,
+                file
+            );
+
+            // Get latest profile from backend
+            const response =
+                await getParentProfile(profile.userId);
+
+            // Set saved image returned by backend
+            if (response.data.profilePhoto) {
+
+                setProfileImage(
+                    `http://localhost:8080/images/parents/${response.data.profilePhoto}`
+                );
+
+            }
+
+        }
+        catch (error) {
+
+            console.error(
+                "Profile photo update failed:",
+                error
+            );
+
+            alert(
+                error.response?.data?.message ||
+                "Unable to update profile photo."
+            );
+
+        }
+
+        // Allow selecting the same file again
+        e.target.value = "";
 
     };
+
 
     return (
 
@@ -35,9 +100,14 @@ function ParentProfileHeader() {
                 <img
                     src={profileImage}
                     alt="Profile"
+                    onError={(e) => {
+                        e.currentTarget.src =
+                            "https://placehold.co/150x150?text=Photo";
+                    }}
                 />
 
                 <button
+                    type="button"
                     className="change-photo-btn"
                     onClick={handleChangePhoto}
                 >
@@ -58,11 +128,16 @@ function ParentProfileHeader() {
 
             </div>
 
+
             <div className="profile-details">
 
-                <h1>Parent Profile</h1>
+                <h1>
+                    Parent Profile
+                </h1>
 
-                <h2>Kajal Nimbekar</h2>
+                <h2>
+                    {profile.userName}
+                </h2>
 
                 <span className="verified-badge">
 
@@ -74,21 +149,36 @@ function ParentProfileHeader() {
 
                     <div>
 
-                        <strong>Parent ID</strong>
+                        <strong>
+                            Parent ID
+                        </strong>
 
-                        <p>PAR00001</p>
+                        <p>
+                            PAR{profile.userId}
+                        </p>
 
                     </div>
 
                     <div>
 
-                        <strong>Member Since</strong>
+                        <strong>
+                            Member Since
+                        </strong>
 
-                        <p>July 2026</p>
+                        <p>
+                            July 2026
+                        </p>
 
                     </div>
 
                 </div>
+
+            </div>
+
+
+            <div className="profile-logout">
+
+                <LogoutButton />
 
             </div>
 

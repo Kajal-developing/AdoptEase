@@ -1,6 +1,33 @@
 import "../../pages/center/CenterProfile.css";
+import { useState, useEffect } from "react";
+import { updateCenterProfile } from "../../api/authApi";
 
-function AddressCard() {
+function AddressCard({ profile }) {
+
+    const [isEditing, setIsEditing] = useState(false);
+
+    const [formData, setFormData] = useState({});
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    useEffect(() => {
+
+        if (profile) {
+            setFormData(profile);
+        }
+
+    }, [profile]);
+
+    const handleChange = (e) => {
+
+        const { name, value } = e.target;
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+
+    };
 
     return (
 
@@ -10,10 +37,41 @@ function AddressCard() {
 
                 <h2>Address Information</h2>
 
-                <button className="edit-btn">
+                <button
+                    className={isEditing ? "save-btn-outline" : "edit-btn"}
+                    onClick={async () => {
 
-                    Edit
+                        if (isEditing) {
 
+                            try {
+
+                                await updateCenterProfile(
+                                    user.userId,
+                                    formData
+                                );
+
+                               // alert("Profile updated successfully.");
+
+                                setIsEditing(false);
+
+                            }
+
+                            catch (error) {
+
+                                alert("Failed to update profile.");
+
+                            }
+
+                        }
+                        else {
+
+                            setIsEditing(true);
+
+                        }
+
+                    }}
+                >
+                    {isEditing ? "Save Changes" : "Edit"}
                 </button>
 
             </div>
@@ -22,22 +80,14 @@ function AddressCard() {
 
                 <div className="info-item">
 
-                    <label>Address Line 1</label>
+                    <label>Address</label>
 
                     <input
                         type="text"
-                        defaultValue="123, MG Road"
-                    />
-
-                </div>
-
-                <div className="info-item">
-
-                    <label>Address Line 2</label>
-
-                    <input
-                        type="text"
-                        defaultValue="Near Railway Station"
+                        name="address"
+                        value={formData.address || ""}
+                        onChange={handleChange}
+                        disabled={!isEditing}
                     />
 
                 </div>
@@ -48,43 +98,43 @@ function AddressCard() {
 
                     <input
                         type="text"
-                        defaultValue="Pune"
+                        name="city"
+                        value={formData.city || ""}
+                        onChange={handleChange}
+                        disabled={!isEditing}
                     />
 
                 </div>
 
                 <div className="info-item">
 
-                    <label>State</label>
+                    <label>Latitude</label>
 
                     <input
                         type="text"
-                        defaultValue="Maharashtra"
+                        name="latitude"
+                        value={formData.latitude || ""}
+                        onChange={handleChange}
+                        disabled={!isEditing}
                     />
 
                 </div>
 
                 <div className="info-item">
 
-                    <label>Pincode</label>
+                    <label>Longitude</label>
 
                     <input
                         type="text"
-                        defaultValue="411001"
+                        name="longitude"
+                        value={formData.longitude || ""}
+                        onChange={handleChange}
+                        disabled={!isEditing}
                     />
 
                 </div>
 
-                <div className="info-item">
 
-                    <label>Country</label>
-
-                    <input
-                        type="text"
-                        defaultValue="India"
-                    />
-
-                </div>
 
             </div>
 

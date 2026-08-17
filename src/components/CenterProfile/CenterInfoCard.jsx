@@ -1,86 +1,240 @@
 import "../../pages/center/CenterProfile.css";
 
-function CenterInfoCard() {
+import { useState, useEffect } from "react";
+
+import { updateCenterProfile } from "../../api/authApi";
+
+import SuccessModal from "../common/SuccessModal";
+
+
+function CenterInfoCard({ profile }) {
+
+    const [isEditing, setIsEditing] = useState(false);
+
+    const [formData, setFormData] = useState({});
+
+    const [showSuccessModal, setShowSuccessModal] =
+        useState(false);
+
+    const user =
+        JSON.parse(localStorage.getItem("user"));
+
+
+    useEffect(() => {
+
+        if (profile) {
+
+            setFormData(profile);
+
+        }
+
+    }, [profile]);
+
+
+    const handleChange = (e) => {
+
+        const { name, value } = e.target;
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+
+    };
+
+
+    const handleSave = async () => {
+
+        try {
+
+            await updateCenterProfile(
+                user.userId,
+                formData
+            );
+
+            // Exit edit mode
+            setIsEditing(false);
+
+            // Show success popup
+            setShowSuccessModal(true);
+
+        }
+
+        catch (error) {
+
+            alert("Failed to update profile.");
+
+        }
+
+    };
+
+
+    const handleButtonClick = () => {
+
+        if (isEditing) {
+
+            handleSave();
+
+        }
+        else {
+
+            setIsEditing(true);
+
+        }
+
+    };
+
 
     return (
 
-        <section className="profile-card">
+        <>
 
-            <div className="card-header">
+            <section className="profile-card">
 
-                <h2>Center Information</h2>
+                <div className="card-header">
 
-                <button className="edit-btn">
+                    <h2>
+                        Center Information
+                    </h2>
 
-                    Edit
+                    <button
+                        className={
+                            isEditing
+                                ? "save-btn-outline"
+                                : "edit-btn"
+                        }
 
-                </button>
+                        onClick={handleButtonClick}
+                    >
 
-            </div>
+                        {isEditing
+                            ? "Save Changes"
+                            : "Edit"}
 
-            <div className="info-grid">
-
-                <div className="info-item">
-
-                    <label>Center Name</label>
-
-                    <input
-                        type="text"
-                        defaultValue="Helping Hands Adoption Center"
-                    />
-
-                </div>
-
-                <div className="info-item">
-
-                    <label>Email</label>
-
-                    <input
-                        type="email"
-                        defaultValue="helpinghands@gmail.com"
-                    />
+                    </button>
 
                 </div>
 
-                <div className="info-item">
 
-                    <label>Phone</label>
+                <div className="info-grid">
 
-                    <input
-                        type="text"
-                        defaultValue="+91 9876543210"
-                    />
+                    <div className="info-item">
+
+                        <label>
+                            Center Name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="centerName"
+                            value={
+                                formData.centerName || ""
+                            }
+                            onChange={handleChange}
+                            disabled={!isEditing}
+                        />
+
+                    </div>
+
+
+                    <div className="info-item">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            value={
+                                formData.email || ""
+                            }
+                            onChange={handleChange}
+                            disabled={!isEditing}
+                        />
+
+                    </div>
+
+
+                    <div className="info-item">
+
+                        <label>
+                            Phone
+                        </label>
+
+                        <input
+                            type="text"
+                            name="contactNo"
+                            value={
+                                formData.contactNo || ""
+                            }
+                            onChange={handleChange}
+                            disabled={!isEditing}
+                        />
+
+                    </div>
+
+
+                    <div className="info-item">
+
+                        <label>
+                            License Number
+                        </label>
+
+                        <input
+                            type="text"
+                            name="licenseNumber"
+                            value={
+                                formData.licenseNumber || ""
+                            }
+                            onChange={handleChange}
+                            disabled={!isEditing}
+                        />
+
+                    </div>
+
+
+                    <div className="info-item full-width">
+
+                        <label>
+                            Description
+                        </label>
+
+                        <textarea
+                            rows="5"
+                            name="description"
+                            value={
+                                formData.description || ""
+                            }
+                            onChange={handleChange}
+                            disabled={!isEditing}
+                        />
+
+                    </div>
 
                 </div>
 
-                <div className="info-item">
+            </section>
 
-                    <label>Website</label>
 
-                    <input
-                        type="text"
-                        defaultValue="www.helpinghands.org"
-                    />
+            {/* Success Popup */}
 
-                </div>
+            <SuccessModal
+                isOpen={showSuccessModal}
 
-                <div className="info-item full-width">
+                title="Profile Updated"
 
-                    <label>Description</label>
+                message="Your center profile has been updated successfully."
 
-                    <textarea
-                        rows="5"
-                        defaultValue="Helping Hands Adoption Center is a CARA-recognized organization committed to providing safe, legal, and transparent adoption services while ensuring the welfare of every child."
-                    />
+                onClose={() =>
+                    setShowSuccessModal(false)
+                }
+            />
 
-                </div>
-
-            </div>
-
-        </section>
+        </>
 
     );
-
 }
+
 
 export default CenterInfoCard;

@@ -1,5 +1,6 @@
-import CenterLayout from "../../layouts/CenterLayout";
-import { ChildrenGrid } from "../../components/AllChildren";
+import CenterWideLayout from "../../layouts/CenterWideLayout";
+import ChildHero from "../../components/ChildHero/ChildHero";
+import ChildrenGrid from "../../components/AllChildren/ChildrenGrid";
 
 import "./AllChildren.css";
 
@@ -7,21 +8,19 @@ function AllChildren() {
 
     return (
 
-        <CenterLayout>
+        <CenterWideLayout>
+
+            <ChildHero
+                title="All Children"
+            />
 
             <div className="all-children-page">
-
-                <div className="all-children-header">
-
-                    <h1>All Children</h1>
-
-                </div>
 
                 <ChildrenGrid />
 
             </div>
 
-        </CenterLayout>
+        </CenterWideLayout>
 
     );
 

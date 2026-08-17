@@ -1,10 +1,14 @@
 import MeetingCard from "./MeetingCard";
-import meetingData from "../../data/meetingData";
+
 import "../../pages/parent/ScheduledMeetings.css";
 
-function MeetingsGrid() {
+function MeetingsGrid({
+    meetings,
+    onMeetingCancelled,
+    onMeetingRescheduled
+}) {
 
-    if (meetingData.length === 0) {
+    if (meetings.length === 0) {
 
         return (
 
@@ -30,11 +34,22 @@ function MeetingsGrid() {
 
             <div className="meetings-grid">
 
-                {meetingData.map((meeting) => (
+                {meetings.map((meeting) => (
 
                     <MeetingCard
-                        key={meeting.id}
+
+                        key={meeting.meetingId}
+
                         meeting={meeting}
+
+                        onCancelled={
+                            onMeetingCancelled
+                        }
+
+                        onRescheduled={
+                            onMeetingRescheduled
+                        }
+
                     />
 
                 ))}
@@ -44,7 +59,6 @@ function MeetingsGrid() {
         </section>
 
     );
-
 }
 
 export default MeetingsGrid;

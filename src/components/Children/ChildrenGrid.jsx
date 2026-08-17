@@ -1,16 +1,7 @@
 import "./Children.css";
-
-import childrenData from "../../data/childrenData";
-
 import ChildCard from "./ChildCard";
 
-function ChildrenGrid({ centerId }) {
-
-    const filteredChildren = childrenData.filter(
-
-        child => child.centerId === Number(centerId)
-
-    );
+function ChildrenGrid({ children = [] }) {
 
     return (
 
@@ -18,7 +9,7 @@ function ChildrenGrid({ centerId }) {
 
             {
 
-                filteredChildren.length === 0 ?
+                children.length === 0 ?
 
                     (
 
@@ -44,8 +35,7 @@ function ChildrenGrid({ centerId }) {
                         <div className="children-grid">
 
                             {
-
-                                filteredChildren.map(child => (
+                                children.map(child => (
 
                                     <ChildCard
 

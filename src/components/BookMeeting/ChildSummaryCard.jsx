@@ -1,18 +1,6 @@
-import { useParams } from "react-router-dom";
-
-import childrenData from "../../data/childrenData";
-
 import "../../pages/parent/BookMeeting.css";
 
-function ChildSummaryCard() {
-
-    const { childId } = useParams();
-
-    const child = childrenData.find(
-
-        item => item.id === Number(childId)
-
-    );
+function ChildSummaryCard({ child }) {
 
     if (!child) {
 
@@ -27,8 +15,8 @@ function ChildSummaryCard() {
             <div className="meeting-child-card">
 
                 <img
-                    src={child.image}
-                    alt={child.name}
+                    src={`http://localhost:8080/images/children/${child.childPhoto}`}
+                    alt={child.childName}
                     className="meeting-child-image"
                 />
 
@@ -36,7 +24,7 @@ function ChildSummaryCard() {
 
                     <h2>
 
-                        {child.name}
+                        {child.childName}
 
                     </h2>
 
@@ -56,7 +44,7 @@ function ChildSummaryCard() {
 
                         <p>
 
-                            <strong>Health :</strong> {child.health}
+                            <strong>Health :</strong> {child.healthStatus}
 
                         </p>
 
@@ -64,9 +52,11 @@ function ChildSummaryCard() {
 
                             <strong>Status :</strong>
 
-                            <span className={`meeting-status ${child.status.toLowerCase()}`}>
+                            <span
+                                className={`meeting-status ${child.availableStatus.toLowerCase()}`}
+                            >
 
-                                {child.status}
+                                {child.availableStatus}
 
                             </span>
 

@@ -1,8 +1,14 @@
 import { useState } from "react";
 import "./CenterRegistration.css";
 import logo from "../../assets/logo/logo.svg";
+import { useNavigate } from "react-router-dom";
+import { registerCenter, loginUser } from "../../api/authApi";
 
 function CenterRegistration() {
+    const navigate = useNavigate();
+
+    const registerData =
+        JSON.parse(localStorage.getItem("registerData")) || {};
 
     const [formData, setFormData] = useState({
         centerName: "",
@@ -13,6 +19,8 @@ function CenterRegistration() {
         address: "",
         centerPhoto: null,
     });
+
+    const [error, setError] = useState("");
 
     const handleChange = (e) => {
 
@@ -35,13 +43,127 @@ function CenterRegistration() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
 
         e.preventDefault();
 
-        console.log(formData);
+        setError("");
 
-        // TODO : Spring Boot API
+        // Required field validation
+
+        if (!formData.centerName.trim()) {
+            setError("Please enter the adoption center name.");
+            return;
+        }
+
+        if (!formData.licenseNumber.trim()) {
+            setError("Please enter the license number.");
+            return;
+        }
+
+        if (!formData.description.trim()) {
+            setError("Please enter the center description.");
+            return;
+        }
+
+        if (!formData.contactNo.trim()) {
+            setError("Please enter the contact number.");
+            return;
+        }
+
+        if (!/^\d{10}$/.test(formData.contactNo)) {
+            setError("Contact number must contain exactly 10 digits.");
+            return;
+        }
+
+        if (!formData.city.trim()) {
+            setError("Please enter the city.");
+            return;
+        }
+
+        if (!formData.address.trim()) {
+            setError("Please enter the address.");
+            return;
+        }
+
+        // Check first registration step
+
+        if (!registerData.email || !registerData.password) {
+
+            setError(
+                "Please complete the registration details first."
+            );
+
+            return;
+        }
+
+        const request = {
+
+            userName: formData.centerName,
+
+            centerName: formData.centerName,
+
+            email: registerData.email,
+
+            password: registerData.password,
+
+            licenseNo: formData.licenseNumber,
+
+            description: formData.description,
+
+            contactNo: formData.contactNo,
+
+            city: formData.city,
+
+            address: formData.address,
+
+            latitude: 0.0,
+
+            longitude: 0.0
+
+        };
+
+        try {
+
+            await registerCenter(
+                request,
+                formData.centerPhoto
+            );
+
+            const loginResponse = await loginUser({
+                email: registerData.email,
+                password: registerData.password
+            });
+
+            localStorage.setItem(
+                "user",
+                JSON.stringify(loginResponse.data)
+            );
+
+            localStorage.setItem(
+                "token",
+                loginResponse.data.token
+            );
+
+            localStorage.removeItem("registerData");
+
+            navigate("/center/home");
+
+        }
+        catch (error) {
+
+            console.error(
+                "Center Registration Error:",
+                error
+            );
+
+            setError(
+                error.response?.data?.message ||
+                error.response?.data ||
+                "Registration failed. Please try again."
+            );
+
+        }
 
     };
 
@@ -77,7 +199,9 @@ function CenterRegistration() {
 
                         <div className="form-group">
 
-                            <label>Adoption Center Name</label>
+                            <label>
+                                Adoption Center Name <span className="required-star">*</span>
+                            </label>
 
                             <input
                                 type="text"
@@ -90,7 +214,9 @@ function CenterRegistration() {
 
                         <div className="form-group">
 
-                            <label>License Number</label>
+                            <label>
+                                License Number <span className="required-star">*</span>
+                            </label>
 
                             <input
                                 type="text"
@@ -103,7 +229,9 @@ function CenterRegistration() {
 
                         <div className="form-group">
 
-                            <label>Description</label>
+                            <label>
+                                Description <span className="required-star">*</span>
+                            </label>
 
                             <textarea
                                 name="description"
@@ -115,13 +243,16 @@ function CenterRegistration() {
 
                         <div className="form-group">
 
-                            <label>Contact No.</label>
+                            <label>
+                                Contact No. <span className="required-star">*</span>
+                            </label>
 
                             <input
                                 type="tel"
                                 name="contactNo"
                                 value={formData.contactNo}
                                 onChange={handleChange}
+                                maxLength="10"
                             />
 
                         </div>
@@ -134,7 +265,9 @@ function CenterRegistration() {
 
                         <div className="form-group">
 
-                            <label>City</label>
+                            <label>
+                                City <span className="required-star">*</span>
+                            </label>
 
                             <input
                                 type="text"
@@ -147,7 +280,9 @@ function CenterRegistration() {
 
                         <div className="form-group">
 
-                            <label>Address</label>
+                            <label>
+                                Address <span className="required-star">*</span>
+                            </label>
 
                             <textarea
                                 name="address"
@@ -155,6 +290,32 @@ function CenterRegistration() {
                                 onChange={handleChange}
                             />
 
+                        </div>
+
+                        <div className="form-group">
+                            <label>Latitude</label>
+
+                            <input
+                                type="number"
+                                step="any"
+                                name="latitude"
+                                value={formData.latitude}
+                                onChange={handleChange}
+                                placeholder="e.g. 18.520430"
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label>Longitude</label>
+
+                            <input
+                                type="number"
+                                step="any"
+                                name="longitude"
+                                value={formData.longitude}
+                                onChange={handleChange}
+                                placeholder="e.g. 73.856744"
+                            />
                         </div>
 
                         <div className="form-group">
@@ -173,6 +334,12 @@ function CenterRegistration() {
                     </div>
 
                 </div>
+
+                {error && (
+                    <p className="registration-error">
+                        {error}
+                    </p>
+                )}
 
                 <div className="button-container">
 

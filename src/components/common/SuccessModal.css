@@ -1,0 +1,164 @@
+/* ============================= */
+/* Success Modal Overlay */
+/* ============================= */
+
+.success-modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 10000;
+}
+
+
+/* ============================= */
+/* Success Modal */
+/* ============================= */
+
+.success-modal {
+    width: 380px;
+
+    max-width: calc(100% - 40px);
+
+    background: #FFFFFF;
+
+    border-radius: 16px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
+
+    animation: successModalAppear 0.2s ease;
+}
+
+
+/* ============================= */
+/* Success Icon */
+/* ============================= */
+
+.success-modal-icon {
+    width: 58px;
+
+    height: 58px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: #E9F8F1;
+
+    color: #1D9E75;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 30px;
+
+    font-weight: 700;
+}
+
+
+/* ============================= */
+/* Title */
+/* ============================= */
+
+.success-modal h2 {
+    margin: 0 0 10px;
+
+    font-size: 24px;
+
+    color: #222222;
+}
+
+
+/* ============================= */
+/* Message */
+/* ============================= */
+
+.success-modal p {
+    margin: 0 0 25px;
+
+    color: #666666;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+
+/* ============================= */
+/* OK Button */
+/* ============================= */
+
+.success-modal-button {
+    min-width: 110px;
+
+    padding: 11px 25px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #D85A30;
+
+    color: #FFFFFF;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.success-modal-button:hover {
+    background: #BF4B24;
+}
+
+
+/* ============================= */
+/* Animation */
+/* ============================= */
+
+@keyframes successModalAppear {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+/* ============================= */
+/* Mobile */
+/* ============================= */
+
+@media (max-width: 480px) {
+
+    .success-modal {
+        width: 320px;
+
+        padding: 25px;
+    }
+}

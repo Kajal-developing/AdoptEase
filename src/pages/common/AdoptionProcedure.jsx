@@ -1,13 +1,24 @@
 import "./AdoptionProcedure.css";
 
-import ParentLayout from "../../layouts/ParentLayout";
+import ParentWideLayout from "../../layouts/ParentWideLayout";
+import CenterLayout from "../../layouts/CenterLayout";
+import AdminLayout from "../../layouts/AdminLayout";
 import AdoptionProcedureContent from "../../components/common/AdoptionProcedureContent";
+import { useLocation } from "react-router-dom";
 
 function AdoptionProcedure() {
 
+    const location = useLocation();
+
+    const Layout = location.pathname.startsWith("/admin")
+        ? AdminLayout
+        : location.pathname.startsWith("/center")
+            ? CenterLayout
+            : ParentWideLayout;
+
     return (
 
-        <ParentLayout>
+        <Layout>
 
             <div className="adoption-procedure-page">
 
@@ -15,7 +26,7 @@ function AdoptionProcedure() {
 
             </div>
 
-        </ParentLayout>
+        </Layout>
 
     );
 

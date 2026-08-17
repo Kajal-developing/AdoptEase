@@ -1,0 +1,543 @@
+.parent-requests-page {
+    width: 100%;
+    min-height: 100vh;
+    background: #FFFFFF;
+    padding-bottom: 20px;
+}
+
+/*==========================================
+  HERO SECTION
+==========================================*/
+
+.parent-request-hero {
+    width: 100%;
+    padding: 70px 20px 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #FFFFFF;
+}
+
+.parent-request-overlay {
+    text-align: center;
+}
+
+.parent-request-overlay h1 {
+    font-size: 52px;
+    font-weight: 600;
+    color: #202020;
+}
+
+/*==========================================
+  REQUEST GRID
+==========================================*/
+
+.requests-grid {
+    max-width: 1320px;
+    margin: 60px auto 80px;
+    padding: 0 20px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 45px;
+}
+
+/*==========================================
+  REQUEST CARD
+==========================================*/
+
+.request-card {
+    background: #FFFFFF;
+
+    border: 1px solid #ECECEC;
+    border-radius: 16px;
+
+    padding: 30px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .06);
+
+    transition: .3s;
+}
+
+/*
+.request-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .08);
+}
+*/
+
+.request-card h2 {
+    font-size: 28px;
+    font-weight: 600;
+
+    color: #202020;
+
+    margin-bottom: 8px;
+}
+
+.request-location {
+    font-size: 16px;
+    color: #7A7A7A;
+
+    margin-bottom: 26px;
+}
+
+/* =========================================
+   PARENT INFORMATION TABLE
+========================================= */
+
+.request-table {
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+/* Header and data use exactly 4 columns */
+.request-table-header,
+.request-table-row {
+    display: grid;
+
+    grid-template-columns:
+        0.8fr
+        1fr
+        1.2fr
+        1.2fr;
+
+    column-gap: 20px;
+
+    align-items: center;
+}
+
+/* Header */
+
+.request-table-header {
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #E5E5E5;
+
+    color: #D85A30;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+/* Data */
+
+.request-table-row {
+    padding-top: 12px;
+
+    color: #333333;
+
+    font-size: 14px;
+
+    font-weight: 400;
+}
+
+/* Prevent text from jumping into another column */
+
+.request-table-header > div,
+.request-table-row > div {
+    min-width: 0;
+
+    white-space: nowrap;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .request-table-header,
+    .request-table-row {
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+        row-gap: 12px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .request-table-header,
+    .request-table-row {
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+        column-gap: 15px;
+    }
+
+}
+
+/*==========================================
+  PARENT PHOTOS
+==========================================*/
+
+.request-images {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+
+    margin: 30px 0;
+}
+
+.request-image-box {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+.request-image-box img {
+    width: 100%;
+
+    height: 230px;
+
+    object-fit: cover;
+
+    border: 1px solid #E5E5E5;
+
+    border-radius: 12px;
+
+    display: block;
+}
+
+.request-image-box span {
+    margin-top: 10px;
+
+    font-size: 13px;
+
+    color: #777777;
+
+    font-weight: 400;
+
+    text-align: center;
+
+    width: 100%;
+}
+
+/*==========================================
+  ACTION BUTTONS
+==========================================*/
+
+.action-buttons {
+    display: flex;
+
+    gap: 16px;
+
+    margin: 28px 0;
+}
+
+.accept-btn,
+.reject-btn {
+    flex: 1;
+
+    height: 48px;
+
+    border-radius: 10px;
+
+    border: 2px solid;
+
+    background: #FFFFFF;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.accept-btn {
+    color: #1D9E75;
+    border-color: #1D9E75;
+}
+
+.reject-btn {
+    color: #F44336;
+    border-color: #F44336;
+}
+
+.active-accept {
+    background: #1D9E75;
+    color: #FFFFFF;
+}
+
+.active-reject {
+    background: #F44336;
+    color: #FFFFFF;
+}
+
+/*==========================================
+  REMARK
+==========================================*/
+
+.remark-box {
+    width: 100%;
+
+    height: 120px;
+
+    padding: 16px;
+
+    border: 1px solid #D8D8D8;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    resize: none;
+
+    margin-bottom: 30px;
+
+    outline: none;
+}
+
+.remark-box:focus {
+    border-color: #D85A30;
+}
+
+/*==========================================
+  SUBMIT BUTTON
+==========================================*/
+
+.submit-btn {
+    width: 170px;
+    height: 48px;
+
+    display: block;
+
+    margin: auto;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #D85A30;
+
+    color: #FFFFFF;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.submit-btn:hover {
+    background: #BF4E28;
+}
+
+/*==========================================
+  DISABLED
+==========================================*/
+
+.accept-btn:disabled,
+.reject-btn:disabled,
+.submit-btn:disabled,
+.remark-box:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+}
+
+/*==========================================
+  POPUP
+==========================================*/
+
+.popup-overlay {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.popup-box {
+    width: 380px;
+
+    background: #FFFFFF;
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.popup-icon {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.popup-icon.success {
+    background: #DDF5E7;
+    color: #1D9E75;
+}
+
+.popup-icon.error {
+    background: #FCEEE8;
+    color: #D85A30;
+}
+
+.popup-box h3 {
+    font-size: 24px;
+
+    margin-bottom: 12px;
+}
+
+.popup-box p {
+    color: #666666;
+
+    font-size: 16px;
+
+    margin-bottom: 25px;
+}
+
+.popup-ok-btn {
+    background: #D85A30;
+
+    color: #FFFFFF;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 11px 35px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.popup-ok-btn:hover {
+    background: #BF4C24;
+}
+
+/*==========================================
+  RESPONSIVE
+==========================================*/
+
+@media (max-width: 992px) {
+
+    .requests-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    .request-images {
+        gap: 20px;
+    }
+
+    .request-images img {
+        height: 200px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .parent-request-hero {
+        padding: 50px 20px 30px;
+    }
+
+    .parent-request-overlay h1 {
+        font-size: 40px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .request-images {
+        grid-template-columns: 1fr;
+    }
+
+    .request-images img {
+        height: 220px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .accept-btn,
+    .reject-btn {
+        width: 100%;
+    }
+
+}
+
+/* =========================================
+   REQUEST GRID MESSAGES
+========================================= */
+
+.requests-grid-message {
+    text-align: center;
+
+    padding: 60px 20px;
+
+    font-size: 20px;
+
+    color: #666666;
+}
+
+.requests-grid-message.error {
+    color: #D85A30;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   DISABLED REMARK
+========================================= */
+
+.remark-box:disabled {
+    background: #F7F7F7;
+
+    color: #999999;
+
+    cursor: not-allowed;
+}

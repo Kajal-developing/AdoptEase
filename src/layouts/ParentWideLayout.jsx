@@ -1,10 +1,14 @@
 import ParentNavbar from "../components/parent/ParentNavbar";
 import Footer from "../components/common/Footer";
 import ChatAssistant from "../components/common/ChatAssistant";
+import { useState } from "react";
+import ChatModal from "../components/chat";
 
 import "./ParentWideLayout.css";
 
 function ParentWideLayout({ children }) {
+
+    const [chatOpen, setChatOpen] = useState(false);
 
     return (
 
@@ -21,7 +25,12 @@ function ParentWideLayout({ children }) {
             <Footer />
 
             <ChatAssistant
-                onClick={() => alert("AI Assistant Coming Soon")}
+                onClick={() => setChatOpen(true)}
+            />
+
+            <ChatModal
+                open={chatOpen}
+                onClose={() => setChatOpen(false)}
             />
 
         </div>

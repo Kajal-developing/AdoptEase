@@ -86,7 +86,7 @@
 
 }
 
-.save-btn {
+.child-save-btn {
 
     background: #D85A30;
 
@@ -94,17 +94,21 @@
 
     border: none;
 
-    border-radius: 10px;
-
     padding: 14px 40px;
+
+    border-radius: 10px;
 
     cursor: pointer;
 
     font-size: 16px;
 
+    font-weight: 600;
+
+    transition: .3s;
+
 }
 
-.save-btn:hover {
+.child-save-btn:hover {
 
     background: #BF4C24;
 

@@ -1,5 +1,5 @@
 import "./Footer.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
     FaFacebookF,
     FaTwitter,
@@ -13,6 +13,37 @@ import {
 import logo from "../../../assets/logo/logo.svg";
 
 function Footer() {
+
+    const location = useLocation();
+
+    const isCenter = location.pathname.startsWith("/center");
+
+    const isAdmin = location.pathname.startsWith("/admin");
+
+    const homeLink = isAdmin
+        ? "/admin/home"
+        : isCenter
+            ? "/center/home"
+            : "/parent/home";
+
+    const aboutLink = isAdmin
+        ? "/admin/about"
+        : isCenter
+            ? "/center/about"
+            : "/about";
+
+    const privacyLink = isAdmin
+        ? "/admin/privacy-policy"
+        : isCenter
+            ? "/center/privacy-policy"
+            : "/parent/privacy-policy";
+
+    const adoptionProcedureLink = isAdmin
+        ? "/admin/adoption-procedure"
+        : isCenter
+            ? "/center/adoption-procedure"
+            : "/adoption-procedure";
+
     return (
         <footer className="footer">
 
@@ -61,15 +92,27 @@ function Footer() {
 
                     <h3>QUICK LINKS</h3>
 
-                    <Link to="/">Home</Link>
+                    <ul className="footer-links">
 
-                    <Link to="/about">About Us</Link>
+                        <li>
+                            <Link to={homeLink}>Home</Link>
+                        </li>
 
-                    <Link to="/process">Adoption Process</Link>
+                        <li>
+                            <Link to={aboutLink}>About Us</Link>
+                        </li>
 
-                    <Link to="/privacy-policy">
-                        Privacy Policy
-                    </Link>
+                        <Link to={adoptionProcedureLink}>
+                            Adoption Process
+                        </Link>
+
+                        <li>
+                            <Link to={privacyLink}>
+                                Privacy Policy
+                            </Link>
+                        </li>
+
+                    </ul>
 
                 </div>
 

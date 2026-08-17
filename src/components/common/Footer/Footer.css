@@ -103,3 +103,37 @@
 
     font-weight: 600;
 }
+
+.footer-links{
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+.footer-links li{
+
+    margin-bottom: 14px;
+
+}
+
+.footer-links a{
+
+    display: block;
+
+    text-decoration: none;
+
+    color: #333;
+
+    transition: .3s;
+
+}
+
+.footer-links a:hover{
+
+    color: #D85A30;
+
+}

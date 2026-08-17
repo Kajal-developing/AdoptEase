@@ -1,0 +1,547 @@
+.admin-about-page {
+
+    width: 100%;
+
+    background: #F8FAFC;
+
+    min-height: 100vh;
+
+    padding-bottom: 10px;
+
+}
+
+/*==========================================
+            HERO
+==========================================*/
+
+.admin-about-hero {
+
+    width: 100%;
+
+    padding: 60px 20px 70px;
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+.admin-about-content {
+
+    max-width: 900px;
+
+    text-align: center;
+
+}
+
+.admin-about-badge {
+
+    display: inline-block;
+
+    background: #FCEEE8;
+
+    color: #D85A30;
+
+    padding: 8px 20px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 25px;
+
+}
+
+.admin-about-content h1 {
+
+    font-size: 52px;
+
+    font-weight: 600;
+
+    color: #202020;
+
+    margin-bottom: 24px;
+
+}
+
+.admin-about-content p {
+
+    max-width: 760px;
+
+    margin: auto;
+
+    color: #666666;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+}
+
+/*==========================================
+            RESPONSIVE
+==========================================*/
+
+@media(max-width:768px) {
+
+    .admin-about-content h1 {
+
+        font-size: 42px;
+
+    }
+
+    .admin-about-content p {
+
+        font-size: 16px;
+
+    }
+
+}
+
+/*==========================================
+        MISSION & VISION
+==========================================*/
+
+.mission-vision-section {
+
+    max-width: 1200px;
+
+    margin: 0 auto 80px;
+
+    padding: 0 20px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 35px;
+
+}
+
+.mission-card,
+.vision-card {
+
+    background: #FFFFFF;
+
+    border-radius: 16px;
+
+    padding: 40px 35px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
+
+    transition: .3s;
+
+}
+
+/* .mission-card:hover,
+.vision-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 16px 35px rgba(0, 0, 0, .10);
+
+} */
+
+.mission-icon,
+.vision-icon {
+
+    color: #D85A30;
+
+    margin-bottom: 20px;
+
+}
+
+.mission-card h2,
+.vision-card h2 {
+
+    margin-bottom: 18px;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    color: #202020;
+
+}
+
+.mission-card p,
+.vision-card p {
+
+    color: #666666;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+
+}
+
+/*==========================================
+        RESPONSIVE
+==========================================*/
+
+@media(max-width:900px) {
+
+    .mission-vision-section {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/*==========================================
+            FEATURES
+==========================================*/
+
+.features-section {
+
+    max-width: 1250px;
+
+    margin: 0 auto 90px;
+
+    padding: 0 20px;
+
+}
+
+.section-title {
+
+    text-align: center;
+
+    margin-bottom: 50px;
+
+}
+
+.section-title h2 {
+
+    font-size: 42px;
+
+    color: #202020;
+
+    margin-bottom: 15px;
+
+    font-weight: 700;
+
+}
+
+.section-title p {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    color: #666666;
+
+    line-height: 1.8;
+
+}
+
+.features-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+}
+
+.feature-card {
+
+    background: #FFFFFF;
+
+    padding: 35px 30px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .06);
+
+    transition: .3s;
+
+    text-align: center;
+
+}
+
+/* .feature-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .10);
+
+} */
+
+.feature-icon {
+
+    width: 75px;
+
+    height: 75px;
+
+    border-radius: 50%;
+
+    background: #FCEEE8;
+
+    color: #D85A30;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+}
+
+.feature-card h3 {
+
+    margin-bottom: 15px;
+
+    color: #202020;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+}
+
+.feature-card p {
+
+    color: #666666;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+
+}
+
+@media(max-width:992px) {
+
+    .features-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .features-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/*==========================================
+            TECHNOLOGY STACK
+==========================================*/
+
+.tech-stack-section {
+
+    max-width: 1250px;
+
+    margin: 0 auto 90px;
+
+    padding: 0 20px;
+
+}
+
+.tech-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+}
+
+.tech-card {
+
+    background: #FFFFFF;
+
+    border-radius: 16px;
+
+    padding: 35px 30px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .06);
+
+    transition: .3s;
+
+}
+
+/* .tech-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .10);
+
+} */
+
+.tech-icon {
+
+    width: 75px;
+
+    height: 75px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: #FCEEE8;
+
+    color: #D85A30;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.tech-card h3 {
+
+    margin-bottom: 15px;
+
+    color: #202020;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+}
+
+.tech-card p {
+
+    color: #666666;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+
+}
+
+@media(max-width:992px) {
+
+    .tech-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .tech-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/*==========================================
+        CALL TO ACTION
+==========================================*/
+
+.admin-cta {
+
+    background: linear-gradient(135deg, #D85A30, #F08B62);
+
+    border-radius: 20px;
+
+    padding: 60px 40px;
+
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+.admin-cta h2 {
+
+    font-size: 40px;
+
+    margin-bottom: 18px;
+
+}
+
+.admin-cta p {
+
+    max-width: 700px;
+
+    margin: 0 auto 30px;
+
+    line-height: 1.8;
+
+}
+
+.admin-cta-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: #FFFFFF;
+
+    color: #D85A30;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 14px 30px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.admin-cta-btn:hover {
+
+    transform: translateY(-3px);
+
+}
+
+@media(max-width:992px) {
+
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .admin-cta {
+
+        padding: 40px 25px;
+
+    }
+
+    .admin-cta h2 {
+
+        font-size: 30px;
+
+    }
+
+}

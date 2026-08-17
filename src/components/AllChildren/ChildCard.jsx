@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import DeleteChildModal from "./DeleteChildModal";
 
+import { deactivateCenterChild } from "../../api/authApi";
+
 import "../../pages/center/AllChildren.css";
 
 function ChildCard({ child }) {
@@ -11,13 +13,47 @@ function ChildCard({ child }) {
 
     const [showDeleteModal, setShowDeleteModal] = useState(false);
 
-    const handleDelete = () => {
+    const [isDeleting, setIsDeleting] = useState(false);
 
-        // Backend delete API here
+    const handleDelete = async () => {
 
-        alert(`${child.name} deleted successfully.`);
+        try {
 
-        setShowDeleteModal(false);
+            setIsDeleting(true);
+
+            await deactivateCenterChild(
+                child.childId
+            );
+
+            alert(
+                `${child.childName} deleted successfully.`
+            );
+
+            setShowDeleteModal(false);
+
+            // Refresh All Children page
+            window.location.reload();
+
+        }
+        catch (error) {
+
+            console.log(
+                "Delete Child Error:",
+                error
+            );
+
+            alert(
+                error.response?.data?.message ||
+                error.response?.data ||
+                "Unable to delete child."
+            );
+
+        }
+        finally {
+
+            setIsDeleting(false);
+
+        }
 
     };
 
@@ -28,13 +64,13 @@ function ChildCard({ child }) {
             <div className="child-card">
 
                 <img
-
-                    src={child.image}
-
-                    alt={child.name}
-
+                    src={
+                        child.childPhoto
+                            ? `http://localhost:8080/images/children/${child.childPhoto}`
+                            : "https://placehold.co/400x300?text=No+Photo"
+                    }
+                    alt={child.childName}
                     className="child-image"
-
                 />
 
                 <div className="child-content">
@@ -43,17 +79,33 @@ function ChildCard({ child }) {
 
                         <h3 className="child-name">
 
-                            {child.name}
+                            {child.childName}
 
                         </h3>
 
                         <span className="child-status">
 
-                            <span className={`status-dot ${child.status.toLowerCase()}`}></span>
+                            <span
+                                className={`status-dot ${child.availableStatus === "AVAILABLE"
+                                        ? "available"
+                                        : child.availableStatus === "MEETING_BOOKED"
+                                            ? "reserved"
+                                            : child.availableStatus === "ADOPTED"
+                                                ? "adopted"
+                                                : ""
+                                    }`}
+                            >
+                            </span>
 
                             <span className="status-text">
 
-                                {child.status}
+                                {child.availableStatus === "AVAILABLE"
+                                    ? "Available"
+                                    : child.availableStatus === "MEETING_BOOKED"
+                                        ? "Reserved"
+                                        : child.availableStatus === "ADOPTED"
+                                            ? "Adopted"
+                                            : child.availableStatus}
 
                             </span>
 
@@ -64,22 +116,20 @@ function ChildCard({ child }) {
                     <div className="child-meta">
 
                         <span>
-
                             Age : {child.age} yrs
-
                         </span>
 
                         <span>
-
                             {child.gender}
-
                         </span>
 
                     </div>
 
                     <p className="child-health">
 
-                        Health : <strong>{child.health}</strong>
+                        Health : <strong>
+                            {child.healthStatus}
+                        </strong>
 
                     </p>
 
@@ -92,11 +142,9 @@ function ChildCard({ child }) {
                     <div className="child-buttons">
 
                         <button
-
-                            className="edit-btn"
-
-                            onClick={() => navigate(`/center/edit-child/${child.id}`)}
-
+                            className="child-edit-btn"
+                            onClick={() => navigate(
+                                `/center/edit-child/${child.childId}`)}
                         >
 
                             Edit
@@ -104,14 +152,17 @@ function ChildCard({ child }) {
                         </button>
 
                         <button
-
-                            className="delete-btn"
-
-                            onClick={() => setShowDeleteModal(true)}
-
+                            className="child-delete-btn"
+                            onClick={() =>
+                                setShowDeleteModal(true)
+                            }
+                            disabled={isDeleting}
                         >
 
-                            Delete
+                            {isDeleting
+                                ? "Deleting..."
+                                : "Delete"
+                            }
 
                         </button>
 
@@ -119,14 +170,15 @@ function ChildCard({ child }) {
 
                 </div>
 
-
             </div>
 
             <DeleteChildModal
 
                 isOpen={showDeleteModal}
 
-                onClose={() => setShowDeleteModal(false)}
+                onClose={() =>
+                    setShowDeleteModal(false)
+                }
 
                 onDelete={handleDelete}
 

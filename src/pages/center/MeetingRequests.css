@@ -74,7 +74,7 @@
 
 .request-card h2 {
 
-    font-size: 26px;
+    font-size: 24px;
 
     margin-bottom: 8px;
 
@@ -221,8 +221,8 @@
 
     padding: 12px;
 
-    margin-bottom: 20px;
-
+    margin-bottom: 0px;
+    
 }
 
 
@@ -336,4 +336,280 @@
 
     cursor: not-allowed;
 
+}
+
+.meeting-success-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+}
+
+.meeting-success-popup {
+    width: 420px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background: #1d9e75;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.meeting-success-popup h2 {
+    margin: 0 0 10px;
+
+    color: #222;
+}
+
+.meeting-success-popup p {
+    margin-bottom: 25px;
+
+    color: #666;
+
+    font-size: 16px;
+}
+
+.success-popup-btn {
+    background: #d85a30;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 12px 35px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.success-popup-btn:hover {
+    opacity: 0.9;
+}
+
+/* ============================= */
+/* CLEAR TICKET CROSS BUTTON */
+/* ============================= */
+
+.request-card {
+    position: relative;
+}
+
+.clear-ticket-btn {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #777;
+
+    font-size: 28px;
+    font-weight: 400;
+
+    line-height: 28px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clear-ticket-btn:hover {
+    background: #f5f5f5;
+    color: #d85a30;
+}
+
+
+/* ============================= */
+/* CLEAR TICKET POPUP */
+/* ============================= */
+
+.clear-ticket-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10000;
+}
+
+
+.clear-ticket-popup {
+    width: 420px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+.clear-warning-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background: #fff3cd;
+
+    color: #d85a30;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+    font-weight: bold;
+}
+
+
+.clear-ticket-popup h2 {
+
+    margin: 0 0 10px;
+
+    color: #222;
+
+}
+
+
+.clear-ticket-popup p {
+
+    margin-bottom: 25px;
+
+    color: #666;
+
+    font-size: 16px;
+
+}
+
+
+.clear-ticket-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+}
+
+
+.keep-ticket-btn {
+
+    padding: 12px 22px;
+
+    border-radius: 8px;
+
+    border: 1px solid #ccc;
+
+    background: white;
+
+    color: #444;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.keep-ticket-btn:hover {
+
+    background: #f5f5f5;
+
+}
+
+
+.confirm-clear-btn {
+
+    padding: 12px 22px;
+
+    border-radius: 8px;
+
+    border: none;
+
+    background: #d85a30;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.confirm-clear-btn:hover {
+
+    opacity: 0.9;
+
+}
+
+.remarks-error {
+    color: #f44336;
+    font-size: 13px;
+    margin: 6px 0 15px 2px;
+    line-height: 1.2;
+    font-weight: 500;
+    
 }

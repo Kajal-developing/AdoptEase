@@ -266,3 +266,17 @@
         width: 100%;
     }
 }
+
+.required-star {
+    color: #e53935;
+    font-weight: 700;
+    margin-left: 3px;
+}
+
+.registration-error {
+    color: #e53935;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px 0 12px;
+}

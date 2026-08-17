@@ -1,9 +1,257 @@
-.parent-profile-page{
+.parent-profile-page {
 
-    max-width:1100px;
+    max-width: 1100px;
 
-    margin:50px auto 80px;
+    margin: 50px auto 80px;
 
-    padding:0 20px;
+    padding: 0 20px;
+
+}
+
+.editing-button {
+
+    background: #D85A30;
+
+    color: #D85A30;
+
+    border-color: #D85A30;
+
+    cursor: default;
+
+}
+
+.editing-button:hover {
+
+    background: #D85A30;
+
+    color: white;
+
+}
+
+.modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, .45);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 999;
+
+}
+
+.password-modal {
+
+    width: 420px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.password-modal h2 {
+
+    margin-bottom: 10px;
+
+}
+
+.password-modal input {
+
+    height: 48px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 0 15px;
+
+    font-size: 16px;
+
+}
+
+.modal-buttons {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 15px;
+
+}
+
+/* ==========================================
+   PROFILE CARD HEADER
+========================================== */
+
+.card-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.card-header .card-title {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================
+   EDIT BUTTON
+========================================== */
+
+.profile-edit-button {
+    background: #D85A30;
+
+    color: #FFFFFF;
+
+    border: none;
+
+    padding: 12px 28px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.profile-edit-button:hover {
+    background: #BF4B24;
+}
+
+
+/* ==========================================
+   SAVE CHANGES BUTTON
+========================================== */
+
+.profile-save-button {
+    background: #FFFFFF;
+
+    color: #D85A30;
+
+    border: 2px solid #D85A30;
+
+    padding: 10px 26px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.profile-save-button:hover {
+    background: #D85A30;
+
+    color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+
+    .card-header {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .profile-edit-button,
+    .profile-save-button {
+        padding: 10px 18px;
+
+        white-space: nowrap;
+    }
+
+}
+
+/* ==========================================
+   PARENT PHOTOS
+========================================== */
+
+.parent-photos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.parent-photo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    background: #FAFAFA;
+    border: 1px solid #E5E5E5;
+    border-radius: 12px;
+}
+
+.parent-photo-item h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333;
+}
+
+.parent-profile-photo {
+    width: 100%;
+    max-width: 350px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #D85A30;
+    margin-bottom: 20px;
+}
+
+.photo-change-button {
+    background: #D85A30;
+    color: #FFFFFF;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.photo-change-button:hover {
+    background: #BF4B24;
+}
+
+@media (max-width: 768px) {
+
+    .parent-photos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .parent-profile-photo {
+        max-width: 100%;
+    }
 
 }

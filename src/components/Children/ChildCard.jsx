@@ -1,30 +1,35 @@
 import "./Children.css";
 import { ArrowRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function ChildCard({ child }) {
+    
+    console.log(child);
 
     const navigate = useNavigate();
 
+    const { city } = useParams();
+
     const handleMeeting = () => {
 
-        if (child.status !== "Available") return;
+        if (child.availableStatus !== "AVAILABLE") return;
 
-        navigate(`/book-meeting/${child.id}`);
-
+        navigate(
+            `/book-meeting/${city}/${child.adoptionCenterId}/${child.childId}`
+        );
     };
 
     const getStatusClass = () => {
 
-        switch (child.status) {
+        switch (child.availableStatus) {
 
-            case "Available":
+            case "AVAILABLE":
                 return "status-available";
 
-            case "Reserved":
+            case "MEETING_BOOKED":
                 return "status-reserved";
 
-            case "Adopted":
+            case "ADOPTED":
                 return "status-adopted";
 
             default:
@@ -38,8 +43,8 @@ function ChildCard({ child }) {
         <div className="child-card">
 
             <img
-                src={child.image}
-                alt={child.name}
+                src={`http://localhost:8080/images/children/${child.childPhoto}`}
+                alt={child.childName}
                 className="child-image"
             />
 
@@ -47,13 +52,13 @@ function ChildCard({ child }) {
 
                 <div className="child-header">
 
-                    <h3>{child.name}</h3>
+                    <h3>{child.childName}</h3>
 
                     <div className={`child-status ${getStatusClass()}`}>
 
                         <span className="status-dot"></span>
 
-                        <span>{child.status}</span>
+                        <span>{child.availableStatus}</span>
 
                     </div>
 
@@ -95,7 +100,7 @@ function ChildCard({ child }) {
 
                     <span className="child-value">
 
-                        {child.health}
+                        {child.healthStatus}
 
                     </span>
 
@@ -109,7 +114,7 @@ function ChildCard({ child }) {
 
                 <button
                     className="meeting-link"
-                    disabled={child.status !== "Available"}
+                    disabled={child.availableStatus !== "AVAILABLE"}
                     onClick={handleMeeting}
                 >
 

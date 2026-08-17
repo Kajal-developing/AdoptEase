@@ -1,8 +1,6 @@
 import "./ApprovalStatusCard.css";
 
-function ApprovalStatusCard({ status = "Pending" }) {
-
-    const options = ["Pending", "Approved", "Rejected"];
+function ApprovalStatusCard({ status = "PENDING" }) {
 
     return (
 
@@ -14,26 +12,47 @@ function ApprovalStatusCard({ status = "Pending" }) {
 
             <div className="approval-list">
 
-                {options.map((item) => (
+                <div className="approval-item">
 
-                    <div
-                        key={item}
-                        className="approval-item"
-                    >
+                    <span
+                        className={`status-circle ${
+                            status === "PENDING" ? "active pending" : ""
+                        }`}
+                    ></span>
 
-                        <span
-                            className={`status-circle ${
-                                status === item ? "active" : ""
-                            }`}
-                        ></span>
+                    <span className="status-text">
+                        Pending
+                    </span>
 
-                        <span className="status-text">
-                            {item}
-                        </span>
+                </div>
 
-                    </div>
+                <div className="approval-item">
 
-                ))}
+                    <span
+                        className={`status-circle ${
+                            status === "APPROVED" ? "active approved" : ""
+                        }`}
+                    ></span>
+
+                    <span className="status-text">
+                        Approved
+                    </span>
+
+                </div>
+
+                <div className="approval-item">
+
+                    <span
+                        className={`status-circle ${
+                            status === "REJECTED" ? "active rejected" : ""
+                        }`}
+                    ></span>
+
+                    <span className="status-text">
+                        Rejected
+                    </span>
+
+                </div>
 
             </div>
 

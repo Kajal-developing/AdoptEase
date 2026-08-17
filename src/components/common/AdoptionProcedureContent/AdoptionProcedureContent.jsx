@@ -7,9 +7,17 @@ import {
     FileText,
     CircleHelp
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function AdoptionProcedureContent() {
+    const location = useLocation();
+
+    const termsPath = location.pathname.startsWith("/admin")
+        ? "/admin/terms-conditions"
+        : location.pathname.startsWith("/center")
+            ? "/center/terms-conditions"
+            : "/parent/terms-conditions";
+
     return (
         <section className="adoption-procedure-container">
 
@@ -250,7 +258,7 @@ function AdoptionProcedureContent() {
             </section>
 
             <Link
-                to="/terms-conditions"
+                to={termsPath}
                 className="terms-link"
             >
                 Terms & Conditions

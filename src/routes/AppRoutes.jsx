@@ -21,6 +21,15 @@ import AddChild from "../pages/center/AddChild";
 import EditChild from "../pages/center/EditChild";
 import AllChildren from "../pages/center/AllChildren";
 import CenterProfile from "../pages/center/CenterProfile";
+import About from "../pages/common/About";
+import PrivacyPolicy from "../pages/common/PrivacyPolicy";
+import ParentRequests from "../pages/admin/ParentRequests";
+import CenterRequests from "../pages/admin/CenterRequests";
+import AdminAbout from "../pages/admin/AdminAbout";
+import AdminProfile from "../pages/admin/AdminProfile";
+import EditAdminProfile from "../pages/admin/EditAdminProfile";
+import Contact from "../pages/common/Contact";
+import ProtectedRoute from "./ProtectedRoute";
 
 function AppRoutes() {
     return (
@@ -42,17 +51,29 @@ function AppRoutes() {
 
                 <Route
                     path="/parent/home"
-                    element={<ParentHome />}
+                    element={
+                        <ProtectedRoute>
+                            <ParentHome />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route
                     path="/center/home"
-                    element={<CenterHome />}
+                    element={
+                        <ProtectedRoute>
+                            <CenterHome />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route
                     path="/admin/home"
-                    element={<AdminHome />}
+                    element={
+                        <ProtectedRoute>
+                            <AdminHome />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route
@@ -61,70 +82,220 @@ function AppRoutes() {
                 />
 
                 <Route
-                    path="/terms-conditions"
+                    path="/parent/adoption-procedure"
+                    element={<AdoptionProcedure />}
+                />
+
+                <Route
+                    path="/center/adoption-procedure"
+                    element={<AdoptionProcedure />}
+                />
+
+                <Route
+                    path="/parent/terms-conditions"
+                    element={<TermsConditions />}
+                />
+
+                <Route
+                    path="/center/terms-conditions"
+                    element={<TermsConditions />}
+                />
+
+                <Route
+                    path="/admin/terms-conditions"
                     element={<TermsConditions />}
                 />
 
                 <Route
                     path="/parent-profile"
-                    element={<ParentProfile />}
+                    element={
+                        <ProtectedRoute>
+                            <ParentProfile />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route
                     path="/cities"
-                    element={<Cities />}
+                    element={
+                        <ProtectedRoute>
+                            <Cities />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route
                     path="/adoption-centers/:city"
-                    element={<AdoptionCenters />}
+                    element={
+                        <ProtectedRoute>
+                            <AdoptionCenters />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route
-                    path="/children/:centerId"
-                    element={<Children />}
+                    path="/children/:city/:centerId"
+                    element={
+                        <ProtectedRoute>
+                            <Children />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route
-                    path="/book-meeting/:childId"
-                    element={<BookMeeting />}
+                    path="/book-meeting/:city/:centerId/:childId"
+                    element={
+                        <ProtectedRoute>
+                            <BookMeeting />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route
                     path="/scheduled-meetings"
-                    element={<ScheduledMeetings />}
+                    element={
+                        <ProtectedRoute>
+                            <ScheduledMeetings />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route
                     path="/center/meeting-requests"
-                    element={<MeetingRequests />}
+                    element={
+                        <ProtectedRoute>
+                            <MeetingRequests />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route
                     path="/center/meeting-details/:id"
-                    element={<MeetingDetails />}
+                    element={
+                        <ProtectedRoute>
+                            <MeetingDetails />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route
                     path="/center/add-child"
-                    element={<AddChild />}
+                    element={
+                        <ProtectedRoute>
+                            <AddChild />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route
                     path="/center/edit-child/:id"
-                    element={<EditChild />}
+                    element={
+                        <ProtectedRoute>
+                            <EditChild />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route
                     path="/center/all-children"
-                    element={<AllChildren />}
+                    element={
+                        <ProtectedRoute>
+                            <AllChildren />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route
                     path="/center/profile"
-                    element={<CenterProfile />}
+                    element={
+                        <ProtectedRoute>
+                            <CenterProfile />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/about"
+                    element={<About />}
+                />
+
+                <Route
+                    path="/center/about"
+                    element={<About />}
+                />
+
+                <Route
+                    path="/parent/privacy-policy"
+                    element={<PrivacyPolicy />}
+                />
+
+                <Route
+                    path="/center/privacy-policy"
+                    element={<PrivacyPolicy />}
+                />
+
+                <Route
+                    path="/admin/privacy-policy"
+                    element={<PrivacyPolicy />}
+                />
+
+                <Route
+                    path="/admin/parent-requests"
+                    element={
+                        <ProtectedRoute>
+                            <ParentRequests />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/admin/center-requests"
+                    element={
+                        <ProtectedRoute>
+                            <CenterRequests />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/admin/about"
+                    element={<AdminAbout />}
+                />
+
+                <Route
+                    path="/admin/profile"
+                    element={
+                        <ProtectedRoute>
+                            <AdminProfile />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/admin/edit-profile"
+                    element={
+                        <ProtectedRoute>
+                            <EditAdminProfile />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/contact"
+                    element={<Contact />}
+                />
+
+                <Route
+                    path="/center/contact"
+                    element={<Contact />}
+                />
+
+                <Route
+                    path="/admin/contact"
+                    element={<Contact />}
                 />
             </Routes>
+
         </BrowserRouter>
     );
 }

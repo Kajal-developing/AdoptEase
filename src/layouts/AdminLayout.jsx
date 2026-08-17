@@ -2,8 +2,12 @@ import AdminNavbar from "../components/admin/AdminNavbar/AdminNavbar";
 import Footer from "../components/common/Footer";
 import ChatAssistant from "../components/common/ChatAssistant";
 import "./AdminLayout.css";
+import { useState } from "react";
+import ChatModal from "../components/chat";
 
 function AdminLayout({ children }) {
+
+    const [chatOpen, setChatOpen] = useState(false);
 
     return (
 
@@ -20,7 +24,12 @@ function AdminLayout({ children }) {
             <Footer />
 
             <ChatAssistant
-                onClick={() => alert("AI Assistant Coming Soon")}
+                onClick={() => setChatOpen(true)}
+            />
+
+            <ChatModal
+                open={chatOpen}
+                onClose={() => setChatOpen(false)}
             />
 
         </div>

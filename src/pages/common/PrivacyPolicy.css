@@ -1,0 +1,283 @@
+.privacy-page {
+
+    max-width: 1100px;
+
+    margin: 70px auto 100px;
+
+    padding: 0 20px;
+
+}
+
+/*==========================================
+            HERO SECTION
+==========================================*/
+
+.privacy-hero {
+
+    width: 100%;
+
+    height: 250px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #FFF5F2;
+
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+    background-size: cover;
+
+}
+
+.privacy-hero-overlay {
+
+    text-align: center;
+
+    max-width: 750px;
+
+    padding: 0 20px;
+
+}
+
+.privacy-hero-overlay h1 {
+
+    font-size: 52px;
+
+    font-weight: 600;
+
+    color: #202020;
+
+    margin-bottom: 18px;
+
+}
+
+.privacy-hero-overlay p {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    color: #666666;
+
+}
+
+@media(max-width:768px) {
+
+    .privacy-hero {
+
+        height: 220px;
+
+    }
+
+    .privacy-hero-overlay h1 {
+
+        font-size: 42px;
+
+    }
+
+    .privacy-hero-overlay p {
+
+        font-size: 16px;
+
+    }
+
+}
+
+/* ==========================================
+        PRIVACY CONTENT
+========================================== */
+
+.privacy-content{
+
+    width:100%;
+
+}
+
+
+/* Introduction */
+
+.privacy-intro {
+
+    text-align: center;
+
+    max-width: 800px;
+
+    margin: 0 auto 60px;
+
+}
+
+.privacy-intro h2 {
+
+    font-size: 34px;
+
+    font-weight: 600;
+
+    color: #202020;
+
+    margin-bottom: 16px;
+
+}
+
+.privacy-intro p {
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: #666;
+
+}
+
+
+/* Privacy Section */
+
+.privacy-section {
+
+    display: flex;
+
+    gap: 30px;
+
+    padding: 35px 0;
+
+    border-bottom: 1px solid #E5E5E5;
+
+}
+
+
+/* Number */
+
+.privacy-number {
+
+    min-width: 65px;
+
+    height: 65px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #FFF1EB;
+
+    color: #D85A30;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    border-radius: 50%;
+
+}
+
+
+/* Section Content */
+
+.privacy-section-content {
+
+    flex: 1;
+
+}
+
+.privacy-section-content h2 {
+
+    font-size: 26px;
+
+    font-weight: 600;
+
+    color: #202020;
+
+    margin-bottom: 14px;
+
+}
+
+.privacy-section-content p {
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    color: #555;
+
+    margin-bottom: 12px;
+
+}
+
+.privacy-section-content ul {
+
+    margin-top: 15px;
+
+    padding-left: 22px;
+
+}
+
+.privacy-section-content li {
+
+    font-size: 16px;
+
+    color: #555;
+
+    line-height: 1.8;
+
+    margin-bottom: 7px;
+
+}
+
+
+/* ==========================================
+            RESPONSIVE
+========================================== */
+
+@media(max-width:768px) {
+
+    .privacy-content {
+
+        margin: 50px auto 70px;
+
+        padding: 0 20px;
+
+    }
+
+    .privacy-intro h2 {
+
+        font-size: 28px;
+
+    }
+
+    .privacy-section {
+
+        gap: 18px;
+
+    }
+
+    .privacy-number {
+
+        min-width: 50px;
+
+        width: 50px;
+
+        height: 50px;
+
+        font-size: 16px;
+
+    }
+
+    .privacy-section-content h2 {
+
+        font-size: 22px;
+
+    }
+
+    .privacy-section-content p,
+    .privacy-section-content li {
+
+        font-size: 15px;
+
+    }
+
+}

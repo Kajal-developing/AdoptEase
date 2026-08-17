@@ -6,35 +6,46 @@ function CenterCard({ center }) {
 
     const navigate = useNavigate();
 
+    const citySlug = {
+        "PUNE": "pune",
+        "MUMBAI": "mumbai",
+        "CH. SAMBHAJINAGAR": "sambhajinagar",
+        "DELHI": "delhi"
+    }[center.city];
+
     return (
 
         <div className="center-card">
 
             <img
-                src={center.image}
-                alt={center.name}
+                src={
+                    center.centerPhoto
+                        ? `http://localhost:8080/images/centers/${center.centerPhoto}`
+                        : `http://localhost:8080/images/centers/default-center.jpg`
+                }
+                alt={center.centerName}
                 className="center-image"
             />
 
             <div className="center-content">
 
-                <h3>{center.name}</h3>
+                <h3>{center.centerName}</h3>
 
                 <p className="center-address">
-
                     {center.address}
-
                 </p>
 
                 <p className="center-description">
-
                     {center.description}
-
                 </p>
 
                 <button
-                    className="view-btn"
-                    onClick={() => navigate(`/children/${center.id}`)}
+                    className="see-children-link"
+                    onClick={() =>
+                        navigate(
+                            `/children/${center.city.toLowerCase()}/${center.centerId}`
+                        )
+                    }
                 >
                     <span>See Children</span>
                     <ArrowRight size={18} />

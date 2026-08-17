@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import "./ProcedureCard.css";
 
-function ProcedureCard({ onClick }) {
+function ProcedureCard({ onViewProcedure }) {
 
     const navigate = useNavigate();
 
     const handleClick = () => {
 
-        if (onClick) {
-            onClick();
+        if (onViewProcedure) {
+            onViewProcedure();
             return;
         }
 

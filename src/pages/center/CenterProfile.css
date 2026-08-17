@@ -13,7 +13,6 @@
 ==========================*/
 
 .center-header-card {
-
     background: #FFFFFF;
 
     border-radius: 18px;
@@ -28,6 +27,7 @@
 
     box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
 
+    position: relative;
 }
 
 .center-logo-section {
@@ -156,6 +156,7 @@
 
         text-align: center;
 
+        padding-bottom: 90px;
     }
 
     .center-meta {
@@ -164,6 +165,12 @@
 
     }
 
+    .center-profile-logout {
+
+        right: 25px;
+
+        bottom: 20px;
+    }
 }
 
 /*==========================
@@ -403,4 +410,178 @@
 
     }
 
+}
+
+.save-btn-outline {
+
+    background: white;
+    color: #E4662F;
+    border: 2px solid #E4662F;
+
+    padding: 12px 28px;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.save-btn-outline:hover {
+
+    background: #E4662F;
+
+    color: white;
+
+}
+
+/* Deactivate Account Popup */
+
+.deactivate-overlay {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+
+}
+
+
+.deactivate-popup {
+
+    width: 430px;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    padding: 32px;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+
+    text-align: center;
+
+}
+
+
+.deactivate-popup h2 {
+
+    margin-bottom: 15px;
+
+    font-size: 25px;
+
+    color: #222222;
+
+}
+
+
+.deactivate-popup p {
+
+    font-size: 16px;
+
+    color: #555555;
+
+    line-height: 1.5;
+
+}
+
+
+.deactivate-warning {
+
+    font-size: 14px !important;
+
+    margin-top: 8px;
+
+}
+
+
+.deactivate-popup-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+}
+
+
+.cancel-deactivate-btn {
+
+    padding: 12px 24px;
+
+    border-radius: 8px;
+
+    border: 2px solid #D85A30;
+
+    background: white;
+
+    color: #D85A30;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+.confirm-deactivate-btn {
+
+    padding: 12px 24px;
+
+    border-radius: 8px;
+
+    border: 2px solid #D85A30;
+
+    background: #D85A30;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+.cancel-deactivate-btn:hover {
+
+    background: #fff5f1;
+
+}
+
+
+.confirm-deactivate-btn:hover {
+
+    background: #b94722;
+
+}
+
+.center-profile-logout {
+    position: absolute;
+
+    right: 35px;
+
+    bottom: 25px;
 }

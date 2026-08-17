@@ -158,6 +158,7 @@
     justify-content: space-between;
     padding: 0 16px;
     box-sizing: border-box;
+    margin-top: 10px;
 }
 
 .captcha-left {
@@ -210,14 +211,15 @@
    ROLE BUTTONS
 ========================== */
 
-.role-buttons {
+.register-role-buttons {
     display: flex;
     justify-content: center;
     gap: 14px;
-    margin-top: clamp(14px, 2vh, 22px);
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.role-buttons button {
+.register-role-buttons button {
     flex: 1;
     max-width: 150px;
     height: 42px;
@@ -227,6 +229,16 @@
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
+}
+
+.register-role-buttons button.selected {
+
+    border: 3px solid #D85A30;
+
+    transform: scale(1.05);
+
+    font-weight: bold;
+
 }
 
 .parent-btn {
@@ -300,4 +312,17 @@
     .role-buttons button {
         max-width: none;
     }
+}
+
+.register-error {
+    color: #e53935;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 5px 2px 8px;
+}
+
+.admin-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
 }

@@ -2,8 +2,12 @@ import CenterNavbar from "../components/center/CenterNavbar/CenterNavbar";
 import Footer from "../components/common/Footer";
 import ChatAssistant from "../components/common/ChatAssistant";
 import "./CenterLayout.css";
+import { useState } from "react";
+import ChatModal from "../components/chat";
 
 function CenterLayout({ children }) {
+
+    const [chatOpen, setChatOpen] = useState(false);
 
     return (
 
@@ -18,7 +22,12 @@ function CenterLayout({ children }) {
             <Footer />
 
             <ChatAssistant
-                onClick={() => alert("AI Assistant Coming Soon")}
+                onClick={() => setChatOpen(true)}
+            />
+
+            <ChatModal
+                open={chatOpen}
+                onClose={() => setChatOpen(false)}
             />
 
         </div>

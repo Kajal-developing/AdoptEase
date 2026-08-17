@@ -1,8 +1,13 @@
 import { useState } from "react";
 
+import {
+    approveCenterMeeting,
+    rejectCenterMeeting
+} from "../../api/authApi";
+
 import "../../pages/center/MeetingRequests.css";
 
-function MeetingRequestCard({ request }) {
+function MeetingRequestCard({ request, onClear }) {
 
     const [status, setStatus] = useState("");
 
@@ -10,7 +15,15 @@ function MeetingRequestCard({ request }) {
 
     const [submitted, setSubmitted] = useState(false);
 
-    const handleSubmit = () => {
+    const [loading, setLoading] = useState(false);
+
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
+    const [showClearPopup, setShowClearPopup] = useState(false);
+
+    const [remarksError, setRemarksError] = useState("");
+
+    const handleSubmit = async () => {
 
         if (!status) {
 
@@ -20,121 +33,249 @@ function MeetingRequestCard({ request }) {
 
         }
 
-        setSubmitted(true);
+        // Clear previous error
+        setRemarksError("");
+
+        // Rejection requires remarks
+        if (status === "Rejected" && !remarks.trim()) {
+
+            setRemarksError("Rejection reason is required.");
+
+            return;
+
+        }
+
+        try {
+
+            setLoading(true);
+
+            if (status === "Accepted") {
+
+                await approveCenterMeeting(
+                    request.meetingId,
+                    {
+                        centerRemarks: remarks
+                    }
+                );
+
+            }
+            else {
+
+                await rejectCenterMeeting(
+                    request.meetingId,
+                    {
+                        centerRemarks: remarks
+                    }
+                );
+
+            }
+
+            setSubmitted(true);
+
+            setShowSuccessPopup(true);
+
+        }
+        catch (error) {
+
+            console.error(
+                "Meeting Action Error:",
+                error
+            );
+
+            console.error(
+                "Response:",
+                error.response?.data
+            );
+
+            setRemarksError(
+                error.response?.data?.message ||
+                "Unable to process meeting request."
+            );
+
+        }
+        finally {
+
+            setLoading(false);
+
+        }
 
     };
 
+
+    const handleClearTicket = () => {
+
+        setShowClearPopup(false);
+
+        if (onClear) {
+
+            onClear(request.meetingId);
+
+        }
+
+    };
+
+
     return (
 
-        <div className="request-card">
+        <>
 
-            <h2>{request.parentName}</h2>
+            <div className="request-card">
 
-            <p className="request-location">
+                {/* CROSS BUTTON */}
 
-                {request.location}
+                {submitted && (
 
-            </p>
+                    <button
 
-            <div className="request-slot">
+                        className="clear-ticket-btn"
 
-                <span>{request.date}</span>
+                        onClick={() =>
+                            setShowClearPopup(true)
+                        }
 
-                <span>{request.time}</span>
+                        title="Clear ticket"
 
-            </div>
+                    >
 
-            <hr />
+                        ×
 
-            <small>
+                    </button>
 
-                Scheduled meeting for
+                )}
 
-            </small>
 
-            <h3>{request.childName}</h3>
+                <h2>
+                    {request.parentName}
+                </h2>
 
-            <p className="request-age">
 
-                Age : {request.age} yrs
+                <p className="request-location">
 
-            </p>
+                    {request.parentAddress}
 
-            <div className="request-actions">
+                </p>
 
-                <button
 
-                    disabled={submitted}
+                <div className="request-slot">
 
-                    className={
-                        status === "Accepted"
-                            ? "accept-btn active-accept"
-                            : "accept-btn"
-                    }
+                    <span>
+                        {request.meetingDate}
+                    </span>
 
-                    onClick={() => setStatus("Accepted")}
+                    <span>
+                        {request.meetingTime}
+                    </span>
 
-                >
+                </div>
 
-                    Accept
 
-                </button>
+                <hr />
 
-                <button
 
-                    disabled={submitted}
+                <small>
+                    Scheduled meeting for
+                </small>
 
-                    className={
-                        status === "Rejected"
-                            ? "reject-btn active-reject"
-                            : "reject-btn"
-                    }
 
-                    onClick={() => setStatus("Rejected")}
+                <h3>
+                    {request.childName}
+                </h3>
 
-                >
 
-                    Reject
+                <p className="request-age">
 
-                </button>
+                    Age : {request.age} yrs
 
-            </div>
+                </p>
 
-            <textarea
 
-                disabled={submitted}
+                <div className="request-actions">
 
-                placeholder="Remark here..."
+                    <button
 
-                value={remarks}
+                        disabled={submitted || loading}
 
-                onChange={(e) => setRemarks(e.target.value)}
-
-            />
-
-            {
-
-                submitted ?
-
-                    <div
                         className={
                             status === "Accepted"
+                                ? "accept-btn active-accept"
+                                : "accept-btn"
+                        }
 
+                        onClick={() =>
+                            setStatus("Accepted")
+                        }
+
+                    >
+
+                        Accept
+
+                    </button>
+
+
+                    <button
+
+                        disabled={submitted || loading}
+
+                        className={
+                            status === "Rejected"
+                                ? "reject-btn active-reject"
+                                : "reject-btn"
+                        }
+
+                        onClick={() =>
+                            setStatus("Rejected")
+                        }
+
+                    >
+
+                        Reject
+
+                    </button>
+
+                </div>
+
+
+                <textarea
+                    disabled={submitted || loading}
+                    placeholder="Remark here..."
+                    value={remarks}
+                    onChange={(e) => {
+                        setRemarks(e.target.value);
+
+                        if (remarksError) {
+                            setRemarksError("");
+                        }
+                    }}
+                />
+
+                {remarksError && (
+
+                    <p className="remarks-error">
+                        {remarksError}
+                    </p>
+
+                )}
+
+
+                {submitted ? (
+
+                    <div
+
+                        className={
+                            status === "Accepted"
                                 ? "request-status accepted"
-
                                 : "request-status rejected"
                         }
+
                     >
 
                         {status === "Accepted"
-
                             ? "Meeting Accepted"
-
                             : "Meeting Rejected"}
 
                     </div>
 
-                    :
+                ) : (
 
                     <button
 
@@ -142,15 +283,139 @@ function MeetingRequestCard({ request }) {
 
                         onClick={handleSubmit}
 
+                        disabled={loading}
+
                     >
 
-                        Submit
+                        {loading
+                            ? "Submitting..."
+                            : "Submit"
+                        }
 
                     </button>
 
-            }
+                )}
 
-        </div>
+            </div>
+
+
+            {/* SUCCESS POPUP */}
+
+            {showSuccessPopup && (
+
+                <div className="meeting-success-overlay">
+
+                    <div className="meeting-success-popup">
+
+                        <div className="success-icon">
+                            ✓
+                        </div>
+
+
+                        <h2>
+
+                            {status === "Accepted"
+                                ? "Meeting Accepted"
+                                : "Meeting Rejected"}
+
+                        </h2>
+
+
+                        <p>
+
+                            {status === "Accepted"
+
+                                ? "The meeting has been successfully accepted."
+
+                                : "The meeting has been successfully rejected."
+
+                            }
+
+                        </p>
+
+
+                        <button
+
+                            className="success-popup-btn"
+
+                            onClick={() =>
+                                setShowSuccessPopup(false)
+                            }
+
+                        >
+
+                            OK
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            )}
+
+
+            {/* CLEAR TICKET CONFIRMATION POPUP */}
+
+            {showClearPopup && (
+
+                <div className="clear-ticket-overlay">
+
+                    <div className="clear-ticket-popup">
+
+                        <div className="clear-warning-icon">
+                            !
+                        </div>
+
+
+                        <h2>
+                            Clear Ticket?
+                        </h2>
+
+
+                        <p>
+                            Are you sure you want to clear this ticket?
+                        </p>
+
+
+                        <div className="clear-ticket-buttons">
+
+                            <button
+
+                                className="keep-ticket-btn"
+
+                                onClick={() =>
+                                    setShowClearPopup(false)
+                                }
+
+                            >
+
+                                No, Keep Ticket
+
+                            </button>
+
+
+                            <button
+
+                                className="confirm-clear-btn"
+
+                                onClick={handleClearTicket}
+
+                            >
+
+                                Yes, Clear Ticket
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            )}
+
+        </>
 
     );
 

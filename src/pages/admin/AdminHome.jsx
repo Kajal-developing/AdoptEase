@@ -1,33 +1,117 @@
 import "./AdminHome.css";
 
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import AdminLayout from "../../layouts/AdminLayout";
 
 import DashboardCard from "../../components/admin/DashboardCard";
 import DashboardActionCard from "../../components/admin/DashboardActionCard";
 
+import { getAdminDashboard } from "../../api/authApi";
+
+
 function AdminHome() {
 
-    const meetings = [
+    const navigate = useNavigate();
 
-        {
-            parent: "Mrs. Aishwarya Patil",
-            child: "Heer",
-            status: "CONFIRMED"
-        },
+    const [dashboard, setDashboard] = useState(null);
 
-        {
-            parent: "Mr. Shantanu Kulkarni",
-            child: "Rahi",
-            status: "PENDING"
-        },
+    const [loading, setLoading] = useState(true);
 
-        {
-            parent: "Mrs. Aishwarya Patil",
-            child: "Bob",
-            status: "CONFIRMED"
-        }
+    const [error, setError] = useState("");
 
-    ];
+
+    useEffect(() => {
+
+        const fetchDashboard = async () => {
+
+            try {
+
+                const response = await getAdminDashboard();
+
+                setDashboard(response.data);
+
+            } catch (error) {
+
+                console.error(
+                    "Unable to load admin dashboard:",
+                    error
+                );
+
+                setError(
+                    error.response?.data?.message ||
+                    "Unable to load dashboard."
+                );
+
+            } finally {
+
+                setLoading(false);
+
+            }
+
+        };
+
+        fetchDashboard();
+
+    }, []);
+
+
+    if (loading) {
+
+        return (
+
+            <AdminLayout>
+
+                <div
+                    style={{
+                        minHeight: "70vh",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        fontSize: "20px"
+                    }}
+                >
+
+                    Loading dashboard...
+
+                </div>
+
+            </AdminLayout>
+
+        );
+
+    }
+
+
+    if (error) {
+
+        return (
+
+            <AdminLayout>
+
+                <div
+                    style={{
+                        minHeight: "70vh",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        color: "#D85A30",
+                        fontSize: "20px",
+                        fontWeight: "600"
+                    }}
+                >
+
+                    {error}
+
+                </div>
+
+            </AdminLayout>
+
+        );
+
+    }
+
 
     return (
 
@@ -43,102 +127,118 @@ function AdminHome() {
                     Here's what needs your attention today.
                 </p>
 
-                {/* Statistics */}
+
+                {/* ================= STATISTICS ================= */}
 
                 <div className="dashboard-cards">
 
                     <DashboardCard
                         title="Total Parents"
-                        value="80"
+                        value={dashboard.totalParents}
                         background="#E8F6D9"
                     />
 
+
                     <DashboardCard
                         title="Pending Requests"
-                        value="7"
+                        value={dashboard.pendingCenters}
                         background="#E8E2FA"
                     />
 
+
                     <DashboardCard
                         title="Approved Centers"
-                        value="24"
+                        value={dashboard.approvedCenters}
                         background="#FFE9AE"
                     />
 
+
                     <DashboardCard
                         title="Total Meetings"
-                        value="42"
+                        value={dashboard.totalMeetings}
                         background="#CFEFFF"
                     />
 
                 </div>
 
-                {/* Quick Actions */}
+
+                {/* ================= QUICK ACTIONS ================= */}
 
                 <div className="dashboard-actions">
 
                     <DashboardActionCard
                         title="Pending Parents Requests"
-                        onClick={() => alert("Pending Parents")}
+                        onClick={() =>
+                            navigate("/admin/parent-requests")
+                        }
                     />
+
 
                     <DashboardActionCard
                         title="Pending Centers Requests"
-                        onClick={() => alert("Pending Centers")}
+                        onClick={() =>
+                            navigate("/admin/center-requests")
+                        }
                     />
 
                 </div>
 
-                {/* Recent Meetings */}
 
-                <div className="recent-meetings">
+                {/* ================= ADDITIONAL STATISTICS ================= */}
 
-                    <h3>
-                        Recent Meetings
-                    </h3>
+                <div className="dashboard-cards">
 
-                    <table>
+                    <DashboardCard
+                        title="Total Centers"
+                        value={dashboard.totalCenters}
+                        background="#FCEEE8"
+                    />
 
-                        <tbody>
 
-                            {meetings.map((meeting, index) => (
+                    <DashboardCard
+                        title="Total Children"
+                        value={dashboard.totalChildren}
+                        background="#E8F6D9"
+                    />
 
-                                <tr key={index}>
 
-                                    <td>
+                    <DashboardCard
+                        title="Available Children"
+                        value={dashboard.availableChildren}
+                        background="#FFE9AE"
+                    />
 
-                                        <strong>Parent :</strong>
 
-                                        {meeting.parent}
-
-                                    </td>
-
-                                    <td>
-
-                                        <strong>Child :</strong>
-
-                                        {meeting.child}
-
-                                    </td>
-
-                                    <td>
-
-                                        <strong>Status :</strong>
-
-                                        {meeting.status}
-
-                                    </td>
-
-                                </tr>
-
-                            ))}
-
-                        </tbody>
-
-                    </table>
+                    <DashboardCard
+                        title="Pending Meetings"
+                        value={dashboard.pendingMeetings}
+                        background="#CFEFFF"
+                    />
 
                 </div>
 
+
+                {/* ================= TICKETS ================= */}
+
+                <div className="dashboard-cards">
+
+                    <DashboardCard
+                        title="Total Tickets"
+                        value={dashboard.totalTickets}
+                        background="#E8E2FA"
+                    />
+
+
+                    <DashboardCard
+                        title="Open Tickets"
+                        value={dashboard.openTickets}
+                        background="#FCEEE8"
+                    />
+
+                </div>
+
+
+                
             </div>
 
         </AdminLayout>
@@ -146,5 +246,6 @@ function AdminHome() {
     );
 
 }
+
 
 export default AdminHome;

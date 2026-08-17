@@ -7,9 +7,9 @@ import {
     BadgeCheck
 } from "lucide-react";
 
-function AdoptionCenterInfo({ centerId }) {
+function AdoptionCenterInfo({ center }) {
 
-    console.log("Selected Center :", centerId);
+    if (!center) return null;
 
     return (
 
@@ -22,12 +22,14 @@ function AdoptionCenterInfo({ centerId }) {
                     <div>
 
                         <h2>
-                            Sarvesham Seva Sangh
+
+                            {center.centerName}
+
                         </h2>
 
                         <p className="center-city">
 
-                            Pune, Maharashtra
+                            {center.city}
 
                         </p>
 
@@ -35,7 +37,7 @@ function AdoptionCenterInfo({ centerId }) {
 
                     <span className="center-status">
 
-                        Active
+                        {center.isActive ? "Active" : "Inactive"}
 
                     </span>
 
@@ -49,8 +51,7 @@ function AdoptionCenterInfo({ centerId }) {
 
                         <span>
 
-                            43, Sinhgad College Road, Pune,
-                            Maharashtra 411041
+                            {center.address}
 
                         </span>
 
@@ -62,8 +63,7 @@ function AdoptionCenterInfo({ centerId }) {
 
                         <span>
 
-                            +91 9876543210
-
+                            +91 {center.contactNo}
                         </span>
 
                     </div>
@@ -74,7 +74,7 @@ function AdoptionCenterInfo({ centerId }) {
 
                         <span>
 
-                            contact@sarvesham.org
+                            {center.email}
 
                         </span>
 
@@ -86,8 +86,7 @@ function AdoptionCenterInfo({ centerId }) {
 
                         <span>
 
-                            License No :
-                            SAA/MH/PUNE/2026/001
+                            License No : {center.licenseNumber}
 
                         </span>
 
@@ -97,14 +96,7 @@ function AdoptionCenterInfo({ centerId }) {
 
                 <p className="center-description">
 
-                    Sarvesham Seva Sangh is a Government
-                    registered adoption center dedicated to
-                    providing a safe, loving and nurturing
-                    environment for children awaiting adoption.
-                    The center focuses on healthcare, education,
-                    emotional well-being and ensuring every child
-                    receives equal opportunities before finding a
-                    permanent family.
+                    {center.description}
 
                 </p>
 

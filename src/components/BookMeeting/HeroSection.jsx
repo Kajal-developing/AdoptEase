@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
-
 import "../../pages/parent/BookMeeting.css";
+import { Link, useParams } from "react-router-dom";
 
 function HeroSection() {
+
+    const { city, centerId } = useParams();
 
     return (
 
@@ -26,41 +27,33 @@ function HeroSection() {
                     </Link>
 
                     <span className="breadcrumb-separator">
-
                         &gt;
-
                     </span>
 
                     <Link
-                        to="/adoption-centers/pune"
+                        to={`/adoption-centers/${city}`}
                         className="breadcrumb-link"
                     >
                         Adoption Centers
                     </Link>
 
                     <span className="breadcrumb-separator">
-
                         &gt;
-
                     </span>
 
                     <Link
-                        to="/children/1"
+                        to={`/children/${city}/${centerId}`}
                         className="breadcrumb-link"
                     >
                         Children
                     </Link>
 
                     <span className="breadcrumb-separator">
-
                         &gt;
-
                     </span>
 
                     <span className="breadcrumb-current">
-
                         Meeting
-
                     </span>
 
                 </div>

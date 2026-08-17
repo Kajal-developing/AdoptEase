@@ -1,16 +1,16 @@
 import "./Cities.css";
 
-import { useNavigate } from "react-router-dom";
+function CityCard({
+    city,
+    onClick
+}) {
 
-function CityCard({ city }) {
-
-    const navigate = useNavigate();
 
     return (
 
         <div
             className="city-card"
-            onClick={() => navigate(`/adoption-centers/${city.slug}`)}
+            onClick={onClick}
         >
 
             <img

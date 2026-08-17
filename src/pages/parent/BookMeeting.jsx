@@ -1,5 +1,7 @@
 import "./BookMeeting.css";
-
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getChildById } from "../../api/authApi";
 import ParentWideLayout from "../../layouts/ParentWideLayout";
 
 import {
@@ -12,6 +14,41 @@ import {
 
 function BookMeeting() {
 
+    const { city, centerId, childId } = useParams();
+
+    const [child, setChild] = useState(null);
+
+    useEffect(() => {
+
+        const fetchChild = async () => {
+
+            try {
+
+                const response = await getChildById(childId);
+
+                setChild(response.data);
+
+                console.log(response.data);
+            }
+
+            catch (error) {
+
+                alert("Unable to load child.");
+
+            }
+
+        };
+
+        fetchChild();
+
+    }, [childId]);
+
+    if (!child) {
+
+        return <h2>Loading...</h2>;
+
+    }
+
     return (
 
         <ParentWideLayout>
@@ -22,9 +59,9 @@ function BookMeeting() {
 
                 <BookingNotice />
 
-                <ChildSummaryCard />
+                <ChildSummaryCard child={child} />
 
-                <MeetingForm />
+                <MeetingForm child={child} />
 
                 <MeetingGuidelines />
 

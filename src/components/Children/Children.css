@@ -336,7 +336,6 @@
     margin-bottom: 18px;
 }
 
-
 /* Information */
 
 .child-info {
@@ -345,7 +344,6 @@
 
     flex-direction: column;
 }
-
 
 /* Header */
 
@@ -364,13 +362,12 @@
 
     margin: 0;
 
-    font-size: 30px;
+    font-size: 28px;
 
     font-weight: 700;
 
     color: #222;
 }
-
 
 /* Status */
 
@@ -474,7 +471,7 @@
 
     line-height: 1.8;
 
-    margin-bottom: 22px;
+    margin-bottom: 8px;
 }
 
 
@@ -498,7 +495,7 @@
 
     color: #1D9E75;
 
-    font-size: 15px;
+    font-size: 16px;
 
     font-weight: 600;
 

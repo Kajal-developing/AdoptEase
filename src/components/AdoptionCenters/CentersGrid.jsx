@@ -1,17 +1,10 @@
 import "./AdoptionCenters.css";
-import { useParams } from "react-router-dom";
 
-import adoptionCentersData from "../../data/adoptionCentersData";
 import CenterCard from "./CenterCard";
 
-function CentersGrid() {
+function CentersGrid({ centers }) {
 
-    const { city } = useParams();
-
-    const centers = adoptionCentersData.filter(
-        center => center.city === city
-    );
-
+   
     return (
 
         <section className="centers-section">

@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { bookMeeting } from "../../api/authApi";
 import { useNavigate } from "react-router-dom";
 import "../../pages/parent/BookMeeting.css";
+import SuccessModal from "../../components/common/SuccessModal";
 
-function MeetingForm() {
+function MeetingForm({ child }) {
 
     const [formData, setFormData] = useState({
 
@@ -15,6 +17,16 @@ function MeetingForm() {
     });
 
     const navigate = useNavigate();
+
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+    const user = JSON.parse(
+        localStorage.getItem("user")
+    );
+
+    console.log("User Object:", user);
+    console.log("User Id:", user.userId);
+    console.log("Child:", child);
 
     const handleChange = (e) => {
 
@@ -30,7 +42,9 @@ function MeetingForm() {
 
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+
+        console.log("Submit Clicked");
 
         e.preventDefault();
 
@@ -42,12 +56,41 @@ function MeetingForm() {
 
         }
 
-        alert("Meeting request submitted successfully.");
+        try {
+            const request = {
+                childId: child.childId,
+                meetingDate: formData.meetingDate,
+                meetingTime: formData.meetingTime,
+                remarks: formData.remarks
+            };
 
-        navigate("/scheduled-meetings");
+            console.log("Request:", request);
+
+            await bookMeeting(
+                user.userId,
+                request
+            );
+
+            setShowSuccessModal(true);
+
+        }
+
+        catch (error) {
+
+            console.log(error);
+
+            console.log(error.response);
+
+            console.log(error.response?.data);
+
+            alert(
+                error.response?.data?.message ||
+                "Unable to book meeting."
+            );
+        }
 
     };
-
+    
     return (
 
         <section className="meeting-form-section">
@@ -108,45 +151,31 @@ function MeetingForm() {
                         >
 
                             <option value="">
-
                                 Select Time
-
                             </option>
 
-                            <option>
-
+                            <option value="10:00">
                                 10:00 AM
-
                             </option>
 
-                            <option>
-
+                            <option value="11:00">
                                 11:00 AM
-
                             </option>
 
-                            <option>
-
+                            <option value="12:00">
                                 12:00 PM
-
                             </option>
 
-                            <option>
-
+                            <option value="14:00">
                                 02:00 PM
-
                             </option>
 
-                            <option>
-
+                            <option value="15:00">
                                 03:00 PM
-
                             </option>
 
-                            <option>
-
+                            <option value="16:00">
                                 04:00 PM
-
                             </option>
 
                         </select>
@@ -190,6 +219,15 @@ function MeetingForm() {
 
             </form>
 
+            <SuccessModal
+                isOpen={showSuccessModal}
+                title="Meeting Scheduled"
+                message="Your meeting has been booked successfully."
+                onClose={() => {
+                    setShowSuccessModal(false);
+                    navigate("/scheduled-meetings");
+                }}
+            />
         </section>
 
     );

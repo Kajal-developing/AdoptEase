@@ -157,6 +157,7 @@
     justify-content: space-between;
     padding: 0 16px;
     box-sizing: border-box;
+    margin-bottom: 5px;
 }
 
 .captcha-left {
@@ -214,6 +215,7 @@
     justify-content: center;
     gap: 14px;
     margin-top: clamp(14px, 2vh, 22px);
+    margin-bottom: 20px;
 }
 
 .role-buttons button {
@@ -226,6 +228,16 @@
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
+}
+
+.role-buttons button.active {
+
+    border: 3px solid #D85A30;
+
+    transform: scale(1.05);
+
+    font-weight: bold;
+
 }
 
 .parent-btn {
@@ -284,4 +296,21 @@
     .role-buttons button {
         max-width: none;
     }
+}
+
+.login-error {
+    color: #e53935;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 3px 0 3px 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+.field-error {
+    color: #d93025;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 5px 2px 0;
+    line-height: 1.3;
 }

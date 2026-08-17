@@ -1,12 +1,16 @@
 import { useState } from "react";
 
 function ChildPhotoUpload({
-
-    handleImage
-
+    handleImage,
+    handleRemoveImage,
+    initialImage
 }) {
 
-    const [preview, setPreview] = useState(null);
+    const [preview, setPreview] = useState(
+        initialImage
+            ? `http://localhost:8080/uploads/children/${initialImage}`
+            : null
+    );
 
     const onFileChange = (e) => {
 
@@ -23,6 +27,8 @@ function ChildPhotoUpload({
     const removeImage = () => {
 
         setPreview(null);
+
+        handleRemoveImage();
 
     };
 

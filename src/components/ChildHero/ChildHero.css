@@ -1,0 +1,131 @@
+.child-hero {
+
+    width: 100%;
+
+    height: 250px;
+
+    background: #FFF5F2;
+
+    background-image: url("../../assets/adoptionCenters/header-bg.png");
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.child-hero-overlay {
+
+    text-align: center;
+
+}
+
+.child-hero-overlay h1 {
+
+    font-size: 52px;
+
+    font-weight: 600;
+
+    color: #202020;
+
+    margin-bottom: 18px;
+
+}
+
+/* ==========================
+        BREADCRUMB
+========================== */
+
+.child-breadcrumb {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 18px;
+
+}
+
+.breadcrumb-link {
+
+    text-decoration: none;
+
+    color: #1D9E75;
+
+    font-weight: 500;
+
+    transition: .3s;
+
+}
+
+.breadcrumb-link:hover {
+
+    text-decoration: underline;
+
+}
+
+.breadcrumb-separator {
+
+    color: #888;
+
+}
+
+.breadcrumb-current {
+
+    color: #888;
+
+    font-weight: 500;
+
+}
+
+/* ==========================
+        RESPONSIVE
+========================== */
+
+@media(max-width:768px) {
+
+    .child-hero {
+
+        height: 220px;
+
+    }
+
+    .child-hero-overlay h1 {
+
+        font-size: 42px;
+
+    }
+
+    .child-breadcrumb {
+
+        font-size: 16px;
+
+    }
+
+}
+
+/* ==========================
+        FORM CONTAINER
+========================== */
+
+.child-form-page {
+
+    max-width: 1100px;
+
+    margin: 60px auto 100px;
+
+    padding: 0 20px;
+
+}
